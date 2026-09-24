@@ -125,7 +125,7 @@ export const Hero: React.FC = () => {
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight font-display">
-              El televisor perfecto para tu sala, gaming o cine en casa en Bolivia.
+              Smart TVs premium para tu sala, tu setup gamer o tu cine en casa.
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl">
