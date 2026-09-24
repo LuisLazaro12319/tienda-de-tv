@@ -16,8 +16,9 @@ import oledImage from '../assets/images/tv_oled_evo_display_1790262645463.jpg';
 import qledImage from '../assets/images/tv_qled_gaming_setup_1790262655355.jpg';
 import miniLedImage from '../assets/images/tv_mini_led_cinema_1790262665687.jpg';
 import { useStore } from '../context/StoreContext';
-import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
+import { buildDirectWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { STORE_NAME } from '../data/tvs';
 
 export const Hero: React.FC = () => {
   const { whatsappPhone } = useStore();
@@ -33,7 +34,7 @@ export const Hero: React.FC = () => {
       subtitle: 'Mira nuestros videos y demostraciones de televisores en vivo con ofertas especiales.',
       priceTag: 'Canal Oficial TikTok',
       oldPrice: '',
-      currentPrice: '@NexusTV',
+      currentPrice: '@AliennLaPaz',
       tiktokUrl: 'https://www.tiktok.com'
     },
     {
@@ -47,7 +48,7 @@ export const Hero: React.FC = () => {
       priceTag: 'Entrega Hoy en Bolivia',
       oldPrice: 'Bs 14.500',
       currentPrice: 'Bs 11.990',
-      whatsappNote: 'Hola NexusTV, deseo comprar el LG OLED evo C4 65" en oferta de Bs 11.990.'
+      whatsappNote: `Hola ${STORE_NAME}, deseo comprar el LG OLED evo C4 65" en oferta de Bs 11.990.`
     },
     {
       id: 'samsung-qn90d',
@@ -60,7 +61,7 @@ export const Hero: React.FC = () => {
       priceTag: 'Garantía Oficial 2 años',
       oldPrice: 'Bs 13.200',
       currentPrice: 'Bs 10.890',
-      whatsappNote: 'Hola NexusTV, me interesa el Samsung Neo QLED 65" QN90D de Bs 10.890.'
+      whatsappNote: `Hola ${STORE_NAME}, me interesa el Samsung Neo QLED 65" QN90D de Bs 10.890.`
     },
     {
       id: 'tcl-qm8-cinema',
@@ -73,7 +74,7 @@ export const Hero: React.FC = () => {
       priceTag: 'Despacho Nacional Asegurado',
       oldPrice: 'Bs 12.800',
       currentPrice: 'Bs 10.490',
-      whatsappNote: 'Hola NexusTV, consulto stock del TCL QM8 Pro 75" Mini-LED de Bs 10.490.'
+      whatsappNote: `Hola ${STORE_NAME}, consulto stock del TCL QM8 Pro 75" Mini-LED de Bs 10.490.`
     }
   ];
 
@@ -254,7 +255,7 @@ export const Hero: React.FC = () => {
                       </a>
                     ) : (
                       <a
-                        href={buildSupportWhatsAppUrl(whatsappPhone, active.whatsappNote)}
+                        href={buildDirectWhatsAppUrl(whatsappPhone, active.whatsappNote || '')}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-emerald-400 hover:bg-emerald-300 text-slate-950"

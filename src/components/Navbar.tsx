@@ -24,10 +24,10 @@ export const Navbar: React.FC = () => {
             href="#"
             className="flex items-center gap-2 text-xl font-bold tracking-tight text-white transition-opacity hover:opacity-90 font-display"
           >
-            <span className="text-emerald-400">Nexus</span>
-            <span>TV</span>
+            <span className="text-emerald-400">Alienn</span>
+            <span>La Paz</span>
             <span className="text-xs font-mono font-normal text-slate-400 tracking-normal ml-1 border-l border-slate-800 pl-2 hidden sm:inline">
-              Smart TV Bolivia
+              Televisores Smart TV
             </span>
           </a>
 

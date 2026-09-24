@@ -1,4 +1,5 @@
 import { TV, CartItem, CheckoutCustomerData } from '../types/tv';
+import { STORE_NAME } from '../data/tvs';
 
 export function formatCurrency(amount: number): string {
   // Bolivian standard format: Bs 11.490
@@ -14,13 +15,22 @@ export function cleanPhoneNumber(phone: string): string {
 }
 
 /**
+ * Sends an already-complete message as-is (no greeting wrapping, unlike
+ * buildSupportWhatsAppUrl which is for a bare topic string).
+ */
+export function buildDirectWhatsAppUrl(phone: string, message: string): string {
+  const cleanPhone = cleanPhoneNumber(phone);
+  return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+}
+
+/**
  * Creates a WhatsApp link for direct single TV purchase / consultation
  */
 export function buildSingleTvWhatsAppUrl(tv: TV, phone: string, customMessage?: string): string {
   const cleanPhone = cleanPhoneNumber(phone);
   const discountText = tv.originalPrice ? ` (Antes: ${formatCurrency(tv.originalPrice)})` : '';
   
-  let text = `👋 *¡Hola ${'NexusTV'}! Vengo de su página web y quiero comprar este televisor:*\n\n`;
+  let text = `👋 *¡Hola ${STORE_NAME}! Vengo de su página web y quiero comprar este televisor:*\n\n`;
   text += `📺 *Modelo:* ${tv.brand} ${tv.modelName}\n`;
   text += `📐 *Pulgadas:* ${tv.screenSize}" | *Tecnología:* ${tv.technology}\n`;
   text += `💰 *Precio Web:* ${formatCurrency(tv.price)}${discountText}\n`;
@@ -47,7 +57,7 @@ export function buildCartWhatsAppUrl(
 ): string {
   const cleanPhone = cleanPhoneNumber(phone);
   
-  let text = `👋 *¡HOLA! DESEO CONCRETAR MI PEDIDO EN NEXUSTV*\n\n`;
+  let text = `👋 *¡HOLA! DESEO CONCRETAR MI PEDIDO EN ${STORE_NAME.toUpperCase()}*\n\n`;
   text += `🧾 *DETALLE DEL PEDIDO:*\n`;
   
   items.forEach((item, index) => {
@@ -90,8 +100,8 @@ export function buildCartWhatsAppUrl(
  */
 export function buildSupportWhatsAppUrl(phone: string, topic?: string): string {
   const cleanPhone = cleanPhoneNumber(phone);
-  const text = topic 
-    ? `👋 Hola NexusTV, deseo asesoría técnica sobre: ${topic}` 
-    : `👋 Hola NexusTV, quisiera asesoría personalizada para elegir el mejor televisor para mi sala y presupuesto.`;
+  const text = topic
+    ? `👋 Hola ${STORE_NAME}, deseo asesoría técnica sobre: ${topic}`
+    : `👋 Hola ${STORE_NAME}, quisiera asesoría personalizada para elegir el mejor televisor para mi sala y presupuesto.`;
   return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
 }

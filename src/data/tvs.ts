@@ -593,7 +593,8 @@ export const ACCESSORIES: Accessory[] = [
   }
 ];
 
-export const STORE_DEFAULT_PHONE = '+59178012345'; // Bolivia WhatsApp
-export const STORE_DISPLAY_PHONE = '+591 780 12345';
-export const STORE_NAME = 'NexusTV Bolivia';
-export const STORE_CITY = 'Santa Cruz de la Sierra · La Paz · Cochabamba';
+export const STORE_DEFAULT_PHONE = '+59177788817'; // Bolivia WhatsApp
+export const STORE_DISPLAY_PHONE = '+591 777 88817';
+export const STORE_NAME = 'Alienn La Paz';
+export const STORE_CITY = 'La Paz';
+export const STORE_MAPS_URL = 'https://maps.app.goo.gl/kgaFB32GJxmD9q818';

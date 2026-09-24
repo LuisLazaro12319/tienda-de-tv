@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X, Phone, Check, Info } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
-import { STORE_DEFAULT_PHONE } from '../data/tvs';
+import { STORE_DEFAULT_PHONE, STORE_NAME } from '../data/tvs';
 import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
@@ -90,7 +90,7 @@ export const WhatsAppSettingsModal: React.FC = () => {
             </button>
 
             <a
-              href={buildSupportWhatsAppUrl(phoneInput, 'Prueba de mensaje desde NexusTV')}
+              href={buildSupportWhatsAppUrl(phoneInput, `Prueba de mensaje desde ${STORE_NAME}`)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs font-medium text-emerald-300 bg-emerald-950/60 border border-emerald-800/80 rounded-xl hover:bg-emerald-900/50"

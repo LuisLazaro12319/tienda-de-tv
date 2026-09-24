@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, MapPin, Clock, ShieldCheck } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
-import { STORE_NAME, STORE_DISPLAY_PHONE } from '../data/tvs';
+import { STORE_NAME, STORE_MAPS_URL } from '../data/tvs';
 import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Identity */}
           <div className="space-y-3">
             <span className="text-lg font-bold text-white font-display">
-              <span className="text-emerald-400">Nexus</span>TV
+              <span className="text-emerald-400">Alienn</span> La Paz
             </span>
             <p className="text-xs text-slate-400 leading-relaxed">
               Tienda especializada en venta y asesoría de televisores Smart TV de alta gama. Venta directa y personalizada por WhatsApp con garantía oficial de marca.
@@ -100,13 +100,15 @@ export const Footer: React.FC = () => {
               Atención & Ventas
             </span>
             <div className="space-y-2 text-slate-400">
-              <div className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Lunes a Domingo: 8:00 AM – 10:00 PM</span>
+              <div className="flex items-start gap-2">
+                <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <span>Lun a Vie: 10:00–20:00 · Sáb: 10:00–21:00 · Dom: 11:00–18:00</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Showroom Santa Cruz (Equipetrol) & La Paz (Calacoto)</span>
+                <a href={STORE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline underline-offset-2">
+                  Ver ubicación en Google Maps
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -137,7 +139,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-          <p>© 2026 NexusTV Inc. Todos los derechos reservados. Venta directa por WhatsApp.</p>
+          <p>© 2026 {STORE_NAME}. Todos los derechos reservados. Venta directa por WhatsApp.</p>
           <div className="flex items-center gap-4">
             <span>Garantía Oficial de Fábrica</span>
             <span>·</span>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Search, MessageSquare, ShieldCheck, Truck, CheckCircle2 } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
+import { STORE_NAME } from '../data/tvs';
 
 export const HowItWorksSection: React.FC = () => {
   const { whatsappPhone } = useStore();
@@ -44,7 +45,7 @@ export const HowItWorksSection: React.FC = () => {
             ¿Cómo se concreta la compra por WhatsApp?
           </h2>
           <p className="mt-2 text-sm text-slate-400">
-            Comprar un televisor es una decisión importante. En NexusTV eliminamos la frialdad de los carritos automáticos y te atendemos con un asesor técnico personal que cuida cada detalle de tu envío.
+            Comprar un televisor es una decisión importante. En {STORE_NAME} eliminamos la frialdad de los carritos automáticos y te atendemos con un asesor técnico personal que cuida cada detalle de tu envío.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 {
-  "name": "NexusTV - Venta de Televisores & Smart TV",
-  "description": "Catálogo especializado de Smart TVs 4K, OLED y QLED en Bolivia con precios en Bolivianos (Bs), filtros avanzados de búsqueda y compra directa por WhatsApp.",
+  "name": "Alienn La Paz - Venta de Televisores & Smart TV",
+  "description": "Catálogo especializado de Smart TVs 4K, OLED y QLED en La Paz, Bolivia con precios en Bolivianos (Bs), filtros avanzados de búsqueda y compra directa por WhatsApp.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
