@@ -208,7 +208,7 @@ export const Hero: React.FC = () => {
                 </button>
 
                 {/* Overlay Callout Box at bottom */}
-                <div className="absolute bottom-4 left-4 right-4 z-10 p-3 sm:p-5 rounded-xl bg-transparent sm:bg-slate-900/95 backdrop-blur-none sm:backdrop-blur-md border-0 sm:border sm:border-slate-800/90 shadow-none sm:shadow-xl space-y-3">
+                <div className="absolute bottom-4 left-4 right-4 z-10 p-3 sm:p-5 rounded-xl bg-transparent space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="space-y-1">
                       {active.isTikTok ? (
@@ -224,12 +224,12 @@ export const Hero: React.FC = () => {
                       <h2 className="text-base sm:text-lg font-bold text-white line-clamp-1 font-display">
                         {active.title}
                       </h2>
-                      <p className="hidden sm:block text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                      <p className="hidden text-xs text-slate-300 line-clamp-2 leading-relaxed">
                         {active.subtitle}
                       </p>
                     </div>
 
-                    <div className="hidden sm:block sm:text-right shrink-0">
+                    <div className="hidden shrink-0">
                       {active.oldPrice && (
                         <span className="text-xs line-through text-slate-500 block font-mono">
                           {active.oldPrice}
@@ -242,7 +242,7 @@ export const Hero: React.FC = () => {
                   </div>
 
                   {/* Direct Action inside the Slide */}
-                  <div className="pt-2 border-t border-slate-800/60 sm:border-slate-800 flex items-center justify-between gap-3">
+                  <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between gap-3">
                     {active.isTikTok ? (
                       <a
                         href={active.tiktokUrl || 'https://www.tiktok.com'}
@@ -269,7 +269,7 @@ export const Hero: React.FC = () => {
 
                     <a
                       href="#catalogo"
-                      className="hidden sm:block px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap"
+                      className="hidden px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap"
                     >
                       Ver Catálogo
                     </a>
