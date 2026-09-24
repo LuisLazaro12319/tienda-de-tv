@@ -30,17 +30,17 @@ export function buildSingleTvWhatsAppUrl(tv: TV, phone: string, customMessage?: 
   const cleanPhone = cleanPhoneNumber(phone);
   const discountText = tv.originalPrice ? ` (Antes: ${formatCurrency(tv.originalPrice)})` : '';
   
-  let text = `👋 *¡Hola ${STORE_NAME}! Vengo de su página web y quiero comprar este televisor:*\n\n`;
-  text += `📺 *Modelo:* ${tv.brand} ${tv.modelName}\n`;
-  text += `📐 *Pulgadas:* ${tv.screenSize}" | *Tecnología:* ${tv.technology}\n`;
-  text += `💰 *Precio Web:* ${formatCurrency(tv.price)}${discountText}\n`;
-  text += `🏷️ *Código:* ${tv.modelCode}\n`;
-  text += `⚡ *Tasa de Refresco:* ${tv.refreshRate}Hz | *OS:* ${tv.os}\n\n`;
-  
+  let text = `\u{1F44B} *¡Hola ${STORE_NAME}! Vengo de su página web y quiero comprar este televisor:*\n\n`;
+  text += `\u{1F4FA} *Modelo:* ${tv.brand} ${tv.modelName}\n`;
+  text += `\u{1F4D0} *Pulgadas:* ${tv.screenSize}" | *Tecnología:* ${tv.technology}\n`;
+  text += `\u{1F4B0} *Precio Web:* ${formatCurrency(tv.price)}${discountText}\n`;
+  text += `\u{1F3F7}\u{FE0F} *Código:* ${tv.modelCode}\n`;
+  text += `\u{26A1} *Tasa de Refresco:* ${tv.refreshRate}Hz | *OS:* ${tv.os}\n\n`;
+
   if (customMessage && customMessage.trim()) {
-    text += `💬 *Consulta del cliente:* ${customMessage.trim()}\n\n`;
+    text += `\u{1F4AC} *Consulta del cliente:* ${customMessage.trim()}\n\n`;
   } else {
-    text += `📦 ¿Tienen stock disponible para coordinar el envío hoy y la forma de pago? Gracias.\n`;
+    text += `\u{1F4E6} ¿Tienen stock disponible para coordinar el envío hoy y la forma de pago? Gracias.\n`;
   }
 
   return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
@@ -57,8 +57,8 @@ export function buildCartWhatsAppUrl(
 ): string {
   const cleanPhone = cleanPhoneNumber(phone);
   
-  let text = `👋 *¡HOLA! DESEO CONCRETAR MI PEDIDO EN ${STORE_NAME.toUpperCase()}*\n\n`;
-  text += `🧾 *DETALLE DEL PEDIDO:*\n`;
+  let text = `\u{1F44B} *¡HOLA! DESEO CONCRETAR MI PEDIDO EN ${STORE_NAME.toUpperCase()}*\n\n`;
+  text += `\u{1F9FE} *DETALLE DEL PEDIDO:*\n`;
   
   items.forEach((item, index) => {
     const itemSubtotal = item.tv.price * item.quantity;
@@ -75,19 +75,19 @@ export function buildCartWhatsAppUrl(
   });
 
   text += `\n━━━━━━━━━━━━━━━━━━━━━━\n`;
-  text += `💵 *TOTAL A PAGAR: ${formatCurrency(totalAmount)}*\n`;
+  text += `\u{1F4B5} *TOTAL A PAGAR: ${formatCurrency(totalAmount)}*\n`;
   text += `━━━━━━━━━━━━━━━━━━━━━━\n\n`;
 
-  text += `📋 *DATOS DE ENTREGA & CONTACTO:*\n`;
-  text += `👤 *Nombre Completo:* ${customer.fullName || 'No especificado'}\n`;
-  text += `📱 *Teléfono:* ${customer.phone || 'El de este chat'}\n`;
-  text += `📍 *Ciudad / Zona:* ${customer.city || 'Por coordinar'}\n`;
-  text += `🏠 *Dirección de Entrega:* ${customer.address || 'Por coordinar'}\n`;
-  text += `🚚 *Modalidad:* ${customer.deliveryType}\n`;
-  text += `💳 *Método de Pago Preferido:* ${customer.paymentMethod}\n`;
+  text += `\u{1F4CB} *DATOS DE ENTREGA & CONTACTO:*\n`;
+  text += `\u{1F464} *Nombre Completo:* ${customer.fullName || 'No especificado'}\n`;
+  text += `\u{1F4F1} *Teléfono:* ${customer.phone || 'El de este chat'}\n`;
+  text += `\u{1F4CD} *Ciudad / Zona:* ${customer.city || 'Por coordinar'}\n`;
+  text += `\u{1F3E0} *Dirección de Entrega:* ${customer.address || 'Por coordinar'}\n`;
+  text += `\u{1F69A} *Modalidad:* ${customer.deliveryType}\n`;
+  text += `\u{1F4B3} *Método de Pago Preferido:* ${customer.paymentMethod}\n`;
 
   if (customer.notes && customer.notes.trim()) {
-    text += `📝 *Observaciones / Horario:* ${customer.notes.trim()}\n`;
+    text += `\u{1F4DD} *Observaciones / Horario:* ${customer.notes.trim()}\n`;
   }
 
   text += `\nQuedo a la espera de sus datos bancarios o confirmación para recibir mi televisor. ¡Muchas gracias!`;
@@ -101,7 +101,7 @@ export function buildCartWhatsAppUrl(
 export function buildSupportWhatsAppUrl(phone: string, topic?: string): string {
   const cleanPhone = cleanPhoneNumber(phone);
   const text = topic
-    ? `👋 Hola ${STORE_NAME}, deseo asesoría técnica sobre: ${topic}`
-    : `👋 Hola ${STORE_NAME}, quisiera asesoría personalizada para elegir el mejor televisor para mi sala y presupuesto.`;
+    ? `\u{1F44B} Hola ${STORE_NAME}, deseo asesoría técnica sobre: ${topic}`
+    : `\u{1F44B} Hola ${STORE_NAME}, quisiera asesoría personalizada para elegir el mejor televisor para mi sala y presupuesto.`;
   return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
 }
