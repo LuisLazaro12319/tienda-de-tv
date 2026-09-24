@@ -135,6 +135,9 @@ export const TvDetailModal: React.FC = () => {
                   <span>·</span>
                   <span className="text-cyan-400 font-medium">{tv.stockQuantity} unidades en inventario</span>
                 </div>
+                <p className="text-sm text-slate-300 mt-3 leading-relaxed">
+                  {tv.description}
+                </p>
               </div>
 
               {/* Price Block */}

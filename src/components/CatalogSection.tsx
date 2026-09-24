@@ -1,17 +1,18 @@
 import React, { useState, useMemo } from 'react';
-import { 
-  Search, 
-  SlidersHorizontal, 
-  MessageCircle, 
-  Eye, 
-  Plus, 
-  Check, 
-  Scale, 
-  X, 
+import {
+  Search,
+  SlidersHorizontal,
+  MessageCircle,
+  Plus,
+  Check,
+  Scale,
+  X,
   Sparkles,
   Tv,
   ArrowUpDown,
-  RotateCcw
+  RotateCcw,
+  LayoutGrid,
+  Rows
 } from 'lucide-react';
 import { TV } from '../types/tv';
 import { TV_CATALOG } from '../data/tvs';
@@ -50,6 +51,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   const [minPrice, setMinPrice] = useState<number>(0);
   const [sortBy, setSortBy] = useState<string>('featured');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [mobileColumns, setMobileColumns] = useState<1 | 2>(1);
 
   // Sync external size filter if passed from calculator
   React.useEffect(() => {
@@ -232,6 +234,30 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               <span>Limpiar filtros</span>
             </button>
           )}
+
+          {/* Mobile-only column view switcher */}
+          <div className="md:hidden ml-auto flex items-center gap-1 p-1 bg-slate-900 border border-slate-800 rounded-lg">
+            <button
+              onClick={() => setMobileColumns(1)}
+              aria-label="Ver en 1 columna"
+              title="Ver en 1 columna"
+              className={`p-1.5 rounded-md transition-colors ${
+                mobileColumns === 1 ? 'bg-cyan-400 text-slate-950' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Rows className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => setMobileColumns(2)}
+              aria-label="Ver en 2 columnas"
+              title="Ver en 2 columnas"
+              className={`p-1.5 rounded-md transition-colors ${
+                mobileColumns === 2 ? 'bg-cyan-400 text-slate-950' : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <LayoutGrid className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -496,7 +522,11 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div
+          className={`grid md:grid-cols-2 lg:grid-cols-3 ${
+            mobileColumns === 2 ? 'grid-cols-2 gap-3' : 'grid-cols-1 gap-6'
+          } md:gap-8`}
+        >
           {filteredTvs.map(tv => {
             const isComparing = comparisonTvs.some(item => item.id === tv.id);
             const discountPercentage = tv.originalPrice
@@ -509,7 +539,11 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                 className="group flex flex-col justify-between bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-slate-700 hover:shadow-2xl hover:shadow-black/60 transition-all duration-300"
               >
                 {/* Image Section */}
-                <div className="relative aspect-[4/3] bg-slate-950 overflow-hidden">
+                <div
+                  onClick={() => setSelectedTvForDetail(tv)}
+                  className="relative aspect-[4/3] bg-slate-950 overflow-hidden cursor-pointer"
+                  title="Ver ficha técnica"
+                >
                   <img
                     src={tv.image}
                     alt={`${tv.brand} ${tv.modelName}`}
@@ -546,10 +580,10 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                 </div>
 
                 {/* Card Content */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                <div className={`flex-1 flex flex-col justify-between space-y-4 ${mobileColumns === 2 ? 'p-3' : 'p-5'} md:p-5`}>
                   <div>
                     {/* Unboxed clean metadata (Zero-Pill discipline) */}
-                    <div className="flex items-center gap-2 text-xs text-slate-400 mb-1.5 font-medium">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-slate-400 mb-1.5 font-medium">
                       <span className="text-cyan-400 font-semibold">{tv.brand}</span>
                       <span aria-hidden="true">·</span>
                       <span>{tv.technology}</span>
@@ -560,14 +594,13 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     </div>
 
                     {/* TV Title */}
-                    <h3 className="text-base font-bold text-white line-clamp-1 group-hover:text-cyan-300 transition-colors">
+                    <h3
+                      onClick={() => setSelectedTvForDetail(tv)}
+                      className="text-base font-bold text-white line-clamp-1 cursor-pointer hover:text-cyan-300 transition-colors"
+                      title="Ver ficha técnica"
+                    >
                       {tv.modelName}
                     </h3>
-
-                    {/* Short highlights */}
-                    <p className="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">
-                      {tv.description}
-                    </p>
                   </div>
 
                   {/* Price & Rating Row */}
@@ -602,25 +635,15 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                       <span>Comprar vía WhatsApp</span>
                     </a>
 
-                    {/* Secondary Actions Row */}
-                    <div className="grid grid-cols-2 gap-2">
-                      <button
-                        onClick={() => setSelectedTvForDetail(tv)}
-                        className="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg transition-colors"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>Ficha Técnica</span>
-                      </button>
-
-                      <button
-                        onClick={() => addToCart(tv)}
-                        className="flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg transition-colors"
-                        title="Agregar a cotización conjunta"
-                      >
-                        <Plus className="w-3.5 h-3.5 text-cyan-400" />
-                        <span>Cotizar</span>
-                      </button>
-                    </div>
+                    {/* Secondary Action: Add to Cart */}
+                    <button
+                      onClick={() => addToCart(tv)}
+                      className="w-full flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg transition-colors"
+                      title="Agregar al carrito"
+                    >
+                      <Plus className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>Agregar al Carrito</span>
+                    </button>
 
                     {/* Subtle Compare Toggle */}
                     <div className="text-center pt-1">
