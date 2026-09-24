@@ -607,16 +607,16 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                   <div className="pt-2 border-t border-slate-800/80 flex items-baseline justify-between">
                     <div>
                       {tv.originalPrice && (
-                        <span className="text-xs line-through text-slate-500 mr-2 font-mono tabular-nums">
+                        <span className={`line-through text-slate-500 mr-2 font-mono tabular-nums ${mobileColumns === 2 ? 'text-[10px]' : 'text-xs'} md:text-xs`}>
                           {formatCurrency(tv.originalPrice)}
                         </span>
                       )}
-                      <span className="text-xl font-bold text-white font-mono tabular-nums">
+                      <span className={`font-bold text-white font-mono tabular-nums ${mobileColumns === 2 ? 'text-sm' : 'text-xl'} md:text-xl`}>
                         {formatCurrency(tv.price)}
                       </span>
                     </div>
 
-                    <div className="text-right text-xs text-slate-400">
+                    <div className={`text-right text-slate-400 ${mobileColumns === 2 ? 'text-[10px]' : 'text-xs'} md:text-xs`}>
                       <span className="text-amber-400">★ {tv.rating}</span>
                       <span className="text-slate-500 ml-1">({tv.reviewsCount})</span>
                     </div>
