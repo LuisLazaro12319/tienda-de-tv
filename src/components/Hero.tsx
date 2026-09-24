@@ -100,6 +100,12 @@ export const Hero: React.FC = () => {
 
   const active = slides[currentSlide];
 
+  const trustItems = [
+    { icon: ShieldCheck, label: 'Garantía Oficial de Marca' },
+    { icon: Truck, label: 'Envío Inmediato Asegurado' },
+    { icon: Tv, label: '100% Nuevos y Sellados' },
+  ];
+
   return (
     <section className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-12 md:py-20">
       {/* Subtle background glow */}
@@ -113,7 +119,7 @@ export const Hero: React.FC = () => {
           {/* Left Column: Editorial Value Proposition */}
           <div className="lg:col-span-6 space-y-6 text-left">
             {/* Ambient Tagline */}
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+            <div className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Smart TVs en Bolivia · Envíos Express a Santa Cruz, La Paz, Cbba & Nacional</span>
             </div>
@@ -133,24 +139,20 @@ export const Hero: React.FC = () => {
                 href="#catalogo"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-950 bg-emerald-400 rounded-lg hover:bg-emerald-300 transition-colors shadow-lg shadow-emerald-950/40"
               >
-                <span>Ver Catálogo con Filtros</span>
+                <span>Ver Catálogo</span>
                 <ArrowDown className="w-4 h-4" />
               </a>
             </div>
 
-            {/* Adjacent Trust Elements */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 text-xs text-slate-400">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Garantía Oficial de Marca</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Envío Inmediato Asegurado</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Tv className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>100% Nuevos y Sellados</span>
+            {/* Adjacent Trust Elements: rotating ticker */}
+            <div className="pt-6 border-t border-slate-800/80 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="flex w-max items-center gap-10 animate-marquee">
+                {[...trustItems, ...trustItems].map(({ icon: Icon, label }, index) => (
+                  <div key={index} className="flex items-center gap-2 text-xs text-slate-400 shrink-0 whitespace-nowrap">
+                    <Icon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>{label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -206,7 +208,7 @@ export const Hero: React.FC = () => {
                 </button>
 
                 {/* Overlay Callout Box at bottom */}
-                <div className="absolute bottom-4 left-4 right-4 z-10 p-4 sm:p-5 rounded-xl bg-slate-900/95 backdrop-blur-md border border-slate-800/90 shadow-xl space-y-3">
+                <div className="absolute bottom-4 left-4 right-4 z-10 p-3 sm:p-5 rounded-xl bg-transparent sm:bg-slate-900/95 backdrop-blur-none sm:backdrop-blur-md border-0 sm:border sm:border-slate-800/90 shadow-none sm:shadow-xl space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="space-y-1">
                       {active.isTikTok ? (
@@ -222,12 +224,12 @@ export const Hero: React.FC = () => {
                       <h2 className="text-base sm:text-lg font-bold text-white line-clamp-1 font-display">
                         {active.title}
                       </h2>
-                      <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                      <p className="hidden sm:block text-xs text-slate-300 line-clamp-2 leading-relaxed">
                         {active.subtitle}
                       </p>
                     </div>
 
-                    <div className="sm:text-right shrink-0">
+                    <div className="hidden sm:block sm:text-right shrink-0">
                       {active.oldPrice && (
                         <span className="text-xs line-through text-slate-500 block font-mono">
                           {active.oldPrice}
@@ -240,7 +242,7 @@ export const Hero: React.FC = () => {
                   </div>
 
                   {/* Direct Action inside the Slide */}
-                  <div className="pt-2 border-t border-slate-800 flex items-center justify-between gap-3">
+                  <div className="pt-2 border-t border-slate-800/60 sm:border-slate-800 flex items-center justify-between gap-3">
                     {active.isTikTok ? (
                       <a
                         href={active.tiktokUrl || 'https://www.tiktok.com'}
@@ -267,7 +269,7 @@ export const Hero: React.FC = () => {
 
                     <a
                       href="#catalogo"
-                      className="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap"
+                      className="hidden sm:block px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap"
                     >
                       Ver Catálogo
                     </a>

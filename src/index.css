@@ -25,3 +25,16 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 16s linear infinite;
+}
