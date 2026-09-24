@@ -67,7 +67,7 @@ export const TvDetailModal: React.FC = () => {
         {/* Sticky Modal Top Bar */}
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-800 bg-slate-900/95 px-6 py-4 backdrop-blur-sm">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
               {tv.brand} · Ficha Técnica Oficial
             </span>
           </div>
@@ -103,7 +103,7 @@ export const TvDetailModal: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md rounded text-xs font-mono text-emerald-400 border border-slate-800">
+                <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md rounded text-xs font-mono text-cyan-400 border border-slate-800">
                   {tv.screenSize}" · {tv.resolution}
                 </div>
               </div>
@@ -111,11 +111,11 @@ export const TvDetailModal: React.FC = () => {
               {/* Delivery & Warranty Trust Callouts */}
               <div className="grid grid-cols-2 gap-3 text-xs text-slate-400">
                 <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center gap-2.5">
-                  <Truck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <Truck className="w-4 h-4 text-cyan-400 shrink-0" />
                   <span>{tv.deliveryEstimate}</span>
                 </div>
                 <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 flex items-center gap-2.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
                   <span>{tv.warrantyYears} años de garantía oficial</span>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export const TvDetailModal: React.FC = () => {
             {/* Contiguous Purchase Module */}
             <div className="md:col-span-6 space-y-5">
               <div>
-                <p className="text-xs font-semibold text-emerald-400 tracking-wider uppercase">
+                <p className="text-xs font-semibold text-cyan-400 tracking-wider uppercase">
                   {tv.brand} · Código: {tv.modelCode}
                 </p>
                 <h2 className="text-2xl font-extrabold text-white mt-1 font-display">
@@ -133,7 +133,7 @@ export const TvDetailModal: React.FC = () => {
                 <div className="flex items-center gap-3 mt-2 text-xs text-slate-400">
                   <span className="text-amber-400">★ {tv.rating} ({tv.reviewsCount} opiniones verificadas)</span>
                   <span>·</span>
-                  <span className="text-emerald-400 font-medium">{tv.stockQuantity} unidades en inventario</span>
+                  <span className="text-cyan-400 font-medium">{tv.stockQuantity} unidades en inventario</span>
                 </div>
               </div>
 
@@ -154,7 +154,7 @@ export const TvDetailModal: React.FC = () => {
                 </div>
 
                 <div className="text-right text-xs">
-                  <span className="inline-block px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">
+                  <span className="inline-block px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 font-semibold border border-cyan-500/20">
                     Ahorras {tv.originalPrice ? formatCurrency(tv.originalPrice - tv.price) : ''}
                   </span>
                 </div>
@@ -170,7 +170,7 @@ export const TvDetailModal: React.FC = () => {
                   value={customInquiry}
                   onChange={(e) => setCustomInquiry(e.target.value)}
                   placeholder="Ej: ¿Tienen servicio de instalación a pared hoy? ¿Aceptan tarjeta?"
-                  className="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-800 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                  className="w-full px-3 py-2 text-xs bg-slate-950 border border-slate-800 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500"
                 />
               </div>
 
@@ -179,7 +179,7 @@ export const TvDetailModal: React.FC = () => {
                 href={buildSingleTvWhatsAppUrl(tv, whatsappPhone, customInquiry)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2.5 px-5 py-3 text-sm font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-colors shadow-lg shadow-emerald-950/40"
+                className="w-full flex items-center justify-center gap-2.5 px-5 py-3 text-sm font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-colors shadow-lg shadow-cyan-950/40"
               >
                 <WhatsAppIcon className="w-5 h-5 fill-slate-950" />
                 <span>Comprar este Televisor por WhatsApp</span>
@@ -189,7 +189,7 @@ export const TvDetailModal: React.FC = () => {
                 onClick={handleAddToCartWithAddons}
                 className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-slate-200 bg-slate-800 hover:bg-slate-700 rounded-xl transition-colors"
               >
-                <Plus className="w-4 h-4 text-emerald-400" />
+                <Plus className="w-4 h-4 text-cyan-400" />
                 <span>Añadir a Cotización / Carrito</span>
               </button>
             </div>
@@ -203,7 +203,7 @@ export const TvDetailModal: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {tv.highlights.map((h, i) => (
                 <div key={i} className="p-3 rounded-lg bg-slate-950/80 border border-slate-800 text-xs text-slate-300 flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                   <span>{h}</span>
                 </div>
               ))}
@@ -224,7 +224,7 @@ export const TvDetailModal: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 p-3 gap-2">
                 <span className="text-slate-400">Tasa de Refresco:</span>
-                <span className="text-emerald-400 font-semibold">{tv.refreshRate} Hz nativo</span>
+                <span className="text-cyan-400 font-semibold">{tv.refreshRate} Hz nativo</span>
                 <span className="text-slate-400">Sistema Operativo:</span>
                 <span className="text-white font-medium">{tv.os}</span>
               </div>
@@ -246,7 +246,7 @@ export const TvDetailModal: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 p-3 gap-2">
                 <span className="text-slate-400">Distancia Óptima:</span>
-                <span className="text-emerald-400 font-medium">{tv.recommendedDistance}</span>
+                <span className="text-cyan-400 font-medium">{tv.recommendedDistance}</span>
                 <span className="text-slate-400">Medidas con Base:</span>
                 <span className="text-white font-medium">{tv.dimensionsWithStand}</span>
               </div>
@@ -277,7 +277,7 @@ export const TvDetailModal: React.FC = () => {
                     onClick={() => toggleAddon(acc)}
                     className={`p-3 rounded-xl border cursor-pointer transition-all flex items-start justify-between gap-3 ${
                       isSelected
-                        ? 'bg-emerald-950/30 border-emerald-500/60 text-white'
+                        ? 'bg-cyan-950/30 border-cyan-500/60 text-white'
                         : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
                     }`}
                   >
@@ -286,11 +286,11 @@ export const TvDetailModal: React.FC = () => {
                       <p className="text-[11px] text-slate-400 mt-1 line-clamp-1">{acc.description}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <span className="text-xs font-bold text-emerald-400 font-mono block">
+                      <span className="text-xs font-bold text-cyan-400 font-mono block">
                         +{formatCurrency(acc.price)}
                       </span>
                       <span className={`inline-block mt-1 text-[10px] px-1.5 py-0.5 rounded font-medium ${
-                        isSelected ? 'bg-emerald-400 text-slate-950 font-bold' : 'bg-slate-800 text-slate-400'
+                        isSelected ? 'bg-cyan-400 text-slate-950 font-bold' : 'bg-slate-800 text-slate-400'
                       }`}>
                         {isSelected ? 'Agregado' : '+ Agregar'}
                       </span>

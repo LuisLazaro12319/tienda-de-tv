@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
       image: oledImage,
       isTikTok: false,
       badge: 'Destacado de la Semana · LG',
-      badgeColor: 'bg-emerald-400 text-slate-950',
+      badgeColor: 'bg-cyan-400 text-slate-950',
       title: 'LG OLED evo C4 65" 4K 144Hz',
       subtitle: 'Negros absolutos, contraste infinito y 4 puertos HDMI 2.1 para PS5 & PC Gaming.',
       priceTag: 'Entrega Hoy en Bolivia',
@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
     <section className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-12 md:py-20">
       {/* Subtle background glow */}
       <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"
         aria-hidden="true"
       />
 
@@ -119,7 +119,7 @@ export const Hero: React.FC = () => {
           {/* Left Column: Editorial Value Proposition */}
           <div className="lg:col-span-6 space-y-6 text-left">
             {/* Ambient Tagline */}
-            <div className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+            <div className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Smart TVs en Bolivia · Envíos Express a Santa Cruz, La Paz, Cbba & Nacional</span>
             </div>
@@ -137,7 +137,7 @@ export const Hero: React.FC = () => {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#catalogo"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-950 bg-emerald-400 rounded-lg hover:bg-emerald-300 transition-colors shadow-lg shadow-emerald-950/40"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-950 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-colors shadow-lg shadow-cyan-950/40"
               >
                 <span>Ver Catálogo</span>
                 <ArrowDown className="w-4 h-4" />
@@ -149,7 +149,7 @@ export const Hero: React.FC = () => {
               <div className="flex w-max items-center gap-10 animate-marquee">
                 {[...trustItems, ...trustItems].map(({ icon: Icon, label }, index) => (
                   <div key={index} className="flex items-center gap-2 text-xs text-slate-400 shrink-0 whitespace-nowrap">
-                    <Icon className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <Icon className="w-4 h-4 text-cyan-400 shrink-0" />
                     <span>{label}</span>
                   </div>
                 ))}
@@ -217,7 +217,7 @@ export const Hero: React.FC = () => {
                           <span>Oferta Especial de la Comunidad TikTok</span>
                         </div>
                       ) : (
-                        <p className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+                        <p className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
                           {active.priceTag}
                         </p>
                       )}
@@ -235,7 +235,7 @@ export const Hero: React.FC = () => {
                           {active.oldPrice}
                         </span>
                       )}
-                      <span className="text-lg sm:text-xl font-extrabold text-emerald-400 font-mono tabular-nums">
+                      <span className="text-lg sm:text-xl font-extrabold text-cyan-400 font-mono tabular-nums">
                         {active.currentPrice}
                       </span>
                     </div>
@@ -260,7 +260,7 @@ export const Hero: React.FC = () => {
                         href={buildDirectWhatsAppUrl(whatsappPhone, active.whatsappNote || '')}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-emerald-400 hover:bg-emerald-300 text-slate-950"
+                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-cyan-400 hover:bg-cyan-300 text-slate-950"
                       >
                         <WhatsAppIcon className="w-3.5 h-3.5 fill-slate-950" />
                         <span>Comprar por WhatsApp</span>
@@ -288,7 +288,7 @@ export const Hero: React.FC = () => {
                     currentSlide === index
                       ? slide.isTikTok 
                         ? 'w-8 bg-rose-500' 
-                        : 'w-8 bg-emerald-400'
+                        : 'w-8 bg-cyan-400'
                       : 'w-2 bg-slate-700 hover:bg-slate-600'
                   }`}
                   aria-label={`Ir a diapositiva ${index + 1}`}

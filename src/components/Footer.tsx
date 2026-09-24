@@ -4,6 +4,7 @@ import { useStore } from '../context/StoreContext';
 import { STORE_NAME, STORE_MAPS_URL } from '../data/tvs';
 import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import logoImage from '../assets/images/alienn-logo.png';
 
 export const Footer: React.FC = () => {
   const { whatsappPhone, setIsPhoneSettingsOpen } = useStore();
@@ -14,13 +15,16 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 pb-8 border-b border-slate-900">
           {/* Col 1: Brand & Identity */}
           <div className="space-y-3">
-            <span className="text-lg font-bold text-white font-display">
-              <span className="text-emerald-400">Alienn</span> La Paz
+            <span className="flex items-center gap-2 text-lg font-bold text-white font-display">
+              <span className="h-8 w-8 shrink-0 overflow-hidden rounded-full ring-1 ring-cyan-400/40">
+                <img src={logoImage} alt="Alienn La Paz" className="h-full w-full scale-110 object-cover" />
+              </span>
+              <span><span className="text-cyan-400">Alienn</span> La Paz</span>
             </span>
             <p className="text-xs text-slate-400 leading-relaxed">
               Tienda especializada en venta y asesoría de televisores Smart TV de alta gama. Venta directa y personalizada por WhatsApp con garantía oficial de marca.
             </p>
-            <div className="flex items-center gap-1.5 text-emerald-400 font-medium pt-1">
+            <div className="flex items-center gap-1.5 text-cyan-400 font-medium pt-1">
               <ShieldCheck className="w-4 h-4" />
               <span>Distribuidores Autorizados</span>
             </div>
@@ -101,17 +105,17 @@ export const Footer: React.FC = () => {
             </span>
             <div className="space-y-2 text-slate-400">
               <div className="flex items-start gap-2">
-                <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <Clock className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
                 <span>Lun a Vie: 10:00–20:00 · Sáb: 10:00–21:00 · Dom: 11:00–18:00</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <a href={STORE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline underline-offset-2">
                   Ver ubicación en Google Maps
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span className="font-mono text-slate-300">{whatsappPhone}</span>
               </div>
 
@@ -120,7 +124,7 @@ export const Footer: React.FC = () => {
                   href={buildSupportWhatsAppUrl(whatsappPhone)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 rounded-lg hover:bg-emerald-900/50 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-cyan-400 bg-cyan-950/60 border border-cyan-800/80 rounded-lg hover:bg-cyan-900/50 transition-colors"
                 >
                   <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
                   <span>Chatear con Ventas</span>

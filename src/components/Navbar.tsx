@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MessageCircle, ShoppingBag, SlidersHorizontal, Scale, PhoneCall, Menu, X } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
+import logoImage from '../assets/images/alienn-logo.png';
 
 export const Navbar: React.FC = () => {
   const {
@@ -24,7 +25,10 @@ export const Navbar: React.FC = () => {
             href="#"
             className="flex items-center gap-2 text-xl font-bold tracking-tight text-white transition-opacity hover:opacity-90 font-display"
           >
-            <span className="text-emerald-400">Alienn</span>
+            <span className="h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-cyan-400/40">
+              <img src={logoImage} alt="Alienn La Paz" className="h-full w-full scale-110 object-cover" />
+            </span>
+            <span className="text-cyan-400">Alienn</span>
             <span>La Paz</span>
             <span className="text-xs font-mono font-normal text-slate-400 tracking-normal ml-1 border-l border-slate-800 pl-2 hidden sm:inline">
               Televisores Smart TV
@@ -33,19 +37,19 @@ export const Navbar: React.FC = () => {
 
           {/* Zone 2: Clean 4-6 nav links */}
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-            <a href="#catalogo" className="hover:text-emerald-400 transition-colors">
+            <a href="#catalogo" className="hover:text-cyan-400 transition-colors">
               Catálogo
             </a>
-            <a href="#calculador" className="hover:text-emerald-400 transition-colors">
+            <a href="#calculador" className="hover:text-cyan-400 transition-colors">
               Calculador de Distancia
             </a>
-            <a href="#como-comprar" className="hover:text-emerald-400 transition-colors">
+            <a href="#como-comprar" className="hover:text-cyan-400 transition-colors">
               Cómo Comprar
             </a>
-            <a href="#garantia" className="hover:text-emerald-400 transition-colors">
+            <a href="#garantia" className="hover:text-cyan-400 transition-colors">
               Garantía & Envíos
             </a>
-            <a href="#preguntas" className="hover:text-emerald-400 transition-colors">
+            <a href="#preguntas" className="hover:text-cyan-400 transition-colors">
               Preguntas Frecuentes
             </a>
           </nav>
@@ -59,7 +63,7 @@ export const Navbar: React.FC = () => {
                 className="relative hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-200 bg-slate-900 border border-slate-700 rounded-lg hover:border-slate-500 transition-colors"
                 title="Comparar televisores seleccionados"
               >
-                <Scale className="w-3.5 h-3.5 text-emerald-400" />
+                <Scale className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Comparar ({comparisonTvs.length})</span>
               </button>
             )}
@@ -72,7 +76,7 @@ export const Navbar: React.FC = () => {
             >
               <ShoppingBag className="w-4 h-4" />
               {cartTotalCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-emerald-500 px-1 text-[10px] font-bold text-slate-950 tabular-nums">
+                <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-cyan-500 px-1 text-[10px] font-bold text-slate-950 tabular-nums">
                   {cartTotalCount}
                 </span>
               )}
@@ -104,35 +108,35 @@ export const Navbar: React.FC = () => {
             <a
               href="#catalogo"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-200 hover:text-emerald-400 py-1"
+              className="block text-sm font-medium text-slate-200 hover:text-cyan-400 py-1"
             >
               Catálogo de Televisores
             </a>
             <a
               href="#calculador"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-200 hover:text-emerald-400 py-1"
+              className="block text-sm font-medium text-slate-200 hover:text-cyan-400 py-1"
             >
               Calculador de Distancia & Tamaño
             </a>
             <a
               href="#como-comprar"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-200 hover:text-emerald-400 py-1"
+              className="block text-sm font-medium text-slate-200 hover:text-cyan-400 py-1"
             >
               Cómo Comprar por WhatsApp
             </a>
             <a
               href="#garantia"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-200 hover:text-emerald-400 py-1"
+              className="block text-sm font-medium text-slate-200 hover:text-cyan-400 py-1"
             >
               Garantía Oficial & Envíos
             </a>
             <a
               href="#preguntas"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-200 hover:text-emerald-400 py-1"
+              className="block text-sm font-medium text-slate-200 hover:text-cyan-400 py-1"
             >
               Preguntas Frecuentes
             </a>
@@ -145,7 +149,7 @@ export const Navbar: React.FC = () => {
                 }}
                 className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-slate-200 bg-slate-900 border border-slate-700 rounded-lg"
               >
-                <Scale className="w-4 h-4 text-emerald-400" />
+                <Scale className="w-4 h-4 text-cyan-400" />
                 Comparar ({comparisonTvs.length}) Televisores
               </button>
             )}

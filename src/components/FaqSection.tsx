@@ -35,7 +35,7 @@ export const FaqSection: React.FC = () => {
     <section id="preguntas" className="border-t border-slate-800 bg-slate-900/50 py-16">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-1">
             <HelpCircle className="w-4 h-4" />
             <span>Respuestas Rápidas</span>
           </div>
@@ -63,7 +63,7 @@ export const FaqSection: React.FC = () => {
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-emerald-400 shrink-0 transition-transform duration-200 ${
+                    className={`w-4 h-4 text-cyan-400 shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -87,7 +87,7 @@ export const FaqSection: React.FC = () => {
             href={buildSupportWhatsAppUrl(whatsappPhone, 'Tengo una consulta general sobre compras')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors"
           >
             <WhatsAppIcon className="w-4 h-4 fill-slate-950" />
             <span>Escribir al WhatsApp de Atención</span>

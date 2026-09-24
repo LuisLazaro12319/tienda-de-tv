@@ -43,7 +43,7 @@ export const WhatsAppSettingsModal: React.FC = () => {
       >
         <div className="flex items-center justify-between border-b border-slate-800 pb-3">
           <div className="flex items-center gap-2">
-            <Phone className="w-5 h-5 text-emerald-400" />
+            <Phone className="w-5 h-5 text-cyan-400" />
             <h3 className="text-base font-bold text-white font-display">
               Configurar WhatsApp de Ventas
             </h3>
@@ -71,19 +71,19 @@ export const WhatsAppSettingsModal: React.FC = () => {
               value={phoneInput}
               onChange={(e) => setPhoneInput(e.target.value)}
               placeholder="Ej: +59178012345 o +59171234567"
-              className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm font-mono text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-emerald-500"
+              className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm font-mono text-cyan-400 placeholder-slate-600 focus:outline-none focus:border-cyan-500"
             />
           </div>
 
           <div className="flex items-center gap-2 text-[11px] text-slate-400 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-            <Info className="w-4 h-4 text-emerald-400 shrink-0" />
+            <Info className="w-4 h-4 text-cyan-400 shrink-0" />
             <span>Este número se almacena de forma persistente en tu navegador.</span>
           </div>
 
           <div className="flex items-center gap-2 pt-2">
             <button
               type="submit"
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-colors"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-colors"
             >
               <Check className="w-4 h-4" />
               <span>Guardar Número</span>
@@ -93,7 +93,7 @@ export const WhatsAppSettingsModal: React.FC = () => {
               href={buildSupportWhatsAppUrl(phoneInput, `Prueba de mensaje desde ${STORE_NAME}`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs font-medium text-emerald-300 bg-emerald-950/60 border border-emerald-800/80 rounded-xl hover:bg-emerald-900/50"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs font-medium text-cyan-300 bg-cyan-950/60 border border-cyan-800/80 rounded-xl hover:bg-cyan-900/50"
               title="Probar en WhatsApp"
             >
               <WhatsAppIcon className="w-4 h-4 fill-current" />

@@ -38,7 +38,7 @@ export const HowItWorksSection: React.FC = () => {
     <section id="como-comprar" className="border-t border-slate-800 bg-slate-950 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">
+          <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
             Proceso Simple y Seguro
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1 font-display">
@@ -63,7 +63,7 @@ export const HowItWorksSection: React.FC = () => {
                     <span className="text-2xl font-black text-slate-700 font-mono">
                       {step.num}
                     </span>
-                    <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
@@ -91,15 +91,15 @@ export const HowItWorksSection: React.FC = () => {
             </p>
             <div className="flex flex-wrap gap-4 text-xs text-slate-300 pt-1">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                 Factura Electrónica con código QR (SIN Bolivia)
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                 Despacho express en Santa Cruz, La Paz y Cochabamba
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                 Instalación a pared profesional disponible
               </span>
             </div>
@@ -109,7 +109,7 @@ export const HowItWorksSection: React.FC = () => {
             href={buildSupportWhatsAppUrl(whatsappPhone, 'Consulta sobre garantías y envíos en Bolivia')}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 px-5 py-3 text-xs font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-colors whitespace-nowrap"
+            className="shrink-0 px-5 py-3 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-colors whitespace-nowrap"
           >
             Consultar con Soporte Técnico
           </a>

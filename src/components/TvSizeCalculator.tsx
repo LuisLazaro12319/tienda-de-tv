@@ -49,7 +49,7 @@ export const TvSizeCalculator: React.FC<TvSizeCalculatorProps> = ({ onSelectSize
     <section id="calculador" className="border-b border-slate-800 bg-slate-900/60 py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-8">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2">
             <Eye className="w-4 h-4" />
             <span>Guía de Compra Inteligente</span>
           </div>
@@ -69,7 +69,7 @@ export const TvSizeCalculator: React.FC<TvSizeCalculatorProps> = ({ onSelectSize
                 <label htmlFor="distance-slider" className="text-sm font-medium text-slate-300">
                   Distancia de visualización (Sofá a Televisor):
                 </label>
-                <span className="text-2xl font-bold text-emerald-400 font-mono tabular-nums">
+                <span className="text-2xl font-bold text-cyan-400 font-mono tabular-nums">
                   {distanceMeters.toFixed(1)} metros
                 </span>
               </div>
@@ -82,7 +82,7 @@ export const TvSizeCalculator: React.FC<TvSizeCalculatorProps> = ({ onSelectSize
                 step="0.1"
                 value={distanceMeters}
                 onChange={(e) => setDistanceMeters(parseFloat(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
               />
 
               <div className="flex justify-between text-xs text-slate-500 mt-2 font-mono">
@@ -95,7 +95,7 @@ export const TvSizeCalculator: React.FC<TvSizeCalculatorProps> = ({ onSelectSize
             {/* Visual Screen Size representation */}
             <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                   <span className="text-lg font-bold font-mono">{rec.idealSize}"</span>
                 </div>
                 <div>
@@ -107,7 +107,7 @@ export const TvSizeCalculator: React.FC<TvSizeCalculatorProps> = ({ onSelectSize
               <a
                 href="#catalogo"
                 onClick={() => onSelectSizeFilter(rec.idealSize)}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors whitespace-nowrap"
               >
                 <span>Filtrar catálogo</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -118,7 +118,7 @@ export const TvSizeCalculator: React.FC<TvSizeCalculatorProps> = ({ onSelectSize
           {/* Educational / Explanatory Advice */}
           <div className="lg:col-span-6 space-y-4 border-t lg:border-t-0 lg:border-l border-slate-800 pt-6 lg:pt-0 lg:pl-8">
             <div className="flex items-center gap-2 text-white font-semibold text-base">
-              <Sparkles className="w-4 h-4 text-emerald-400" />
+              <Sparkles className="w-4 h-4 text-cyan-400" />
               <span>{rec.title}</span>
             </div>
             <p className="text-sm text-slate-300 leading-relaxed">
@@ -127,11 +127,11 @@ export const TvSizeCalculator: React.FC<TvSizeCalculatorProps> = ({ onSelectSize
 
             <div className="space-y-2 text-xs text-slate-400 pt-2">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span>En resolución 4K puedes sentarte más cerca sin percibir grano ni píxeles.</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span>Si tienes dudas entre dos tamaños, el 92% de los clientes prefiere elegir el más grande.</span>
               </div>
             </div>

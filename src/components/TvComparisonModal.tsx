@@ -25,7 +25,7 @@ export const TvComparisonModal: React.FC = () => {
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-800 bg-slate-900/95 px-6 py-4 backdrop-blur-sm">
           <div className="flex items-center gap-2">
-            <Scale className="w-5 h-5 text-emerald-400" />
+            <Scale className="w-5 h-5 text-cyan-400" />
             <h3 className="text-base font-bold text-white font-display">
               Comparativa Técnica ({comparisonTvs.length} de 3 modelos)
             </h3>
@@ -86,7 +86,7 @@ export const TvComparisonModal: React.FC = () => {
                     </div>
 
                     <p className="text-xs font-bold text-white line-clamp-1">{tv.brand} {tv.modelName}</p>
-                    <p className="text-base font-bold text-emerald-400 font-mono tabular-nums">
+                    <p className="text-base font-bold text-cyan-400 font-mono tabular-nums">
                       {formatCurrency(tv.price)}
                     </p>
 
@@ -94,7 +94,7 @@ export const TvComparisonModal: React.FC = () => {
                       href={buildSingleTvWhatsAppUrl(tv, whatsappPhone)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 text-[11px] font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded transition-colors"
+                      className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 text-[11px] font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded transition-colors"
                     >
                       <WhatsAppIcon className="w-3.5 h-3.5 fill-slate-950" />
                       <span>Comprar por WhatsApp</span>
@@ -133,7 +133,7 @@ export const TvComparisonModal: React.FC = () => {
                 <div className="grid grid-cols-4 p-3 gap-4">
                   <span className="text-slate-400 font-medium">Tasa de Refresco:</span>
                   {comparisonTvs.map(tv => (
-                    <span key={tv.id} className={`font-mono font-semibold ${tv.refreshRate >= 120 ? 'text-emerald-400' : 'text-slate-300'}`}>
+                    <span key={tv.id} className={`font-mono font-semibold ${tv.refreshRate >= 120 ? 'text-cyan-400' : 'text-slate-300'}`}>
                       {tv.refreshRate} Hz {tv.refreshRate >= 120 ? '· Gaming Pro' : ''}
                     </span>
                   ))}
@@ -179,7 +179,7 @@ export const TvComparisonModal: React.FC = () => {
                 <div className="grid grid-cols-4 p-3 gap-4">
                   <span className="text-slate-400 font-medium">Garantía Oficial:</span>
                   {comparisonTvs.map(tv => (
-                    <span key={tv.id} className="text-emerald-400 font-medium">{tv.warrantyYears} años de marca</span>
+                    <span key={tv.id} className="text-cyan-400 font-medium">{tv.warrantyYears} años de marca</span>
                   ))}
                 </div>
               </div>
