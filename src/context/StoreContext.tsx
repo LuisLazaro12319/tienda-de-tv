@@ -1,8 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { TV, CartItem, Accessory, CheckoutCustomerData } from '../types/tv';
 import { STORE_DEFAULT_PHONE } from '../data/tvs';
+import { subscribeProductos } from '../lib/products';
 
 interface StoreContextType {
+  // Catalog (vive en Firestore; el admin lo carga/edita)
+  productos: TV[];
+
   // Cart
   cart: CartItem[];
   addToCart: (tv: TV, accessories?: Accessory[]) => void;
@@ -42,6 +46,13 @@ interface StoreContextType {
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [productos, setProductos] = useState<TV[]>([]);
+
+  useEffect(() => {
+    const unsubscribe = subscribeProductos(setProductos);
+    return unsubscribe;
+  }, []);
+
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
       const saved = localStorage.getItem('nexustv_cart');
@@ -178,6 +189,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   return (
     <StoreContext.Provider
       value={{
+        productos,
         cart,
         addToCart,
         removeFromCart,

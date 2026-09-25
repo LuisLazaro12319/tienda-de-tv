@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StoreProvider } from './context/StoreContext';
+import { AdminApp } from './components/admin/AdminApp';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { CatalogSection } from './components/CatalogSection';
@@ -13,8 +14,18 @@ import { TvComparisonModal } from './components/TvComparisonModal';
 import { WhatsAppSettingsModal } from './components/WhatsAppSettingsModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
+const esRutaAdmin = window.location.pathname.replace(/\/$/, '').endsWith('/admin');
+
 export default function App() {
   const [selectedSizeFilter, setSelectedSizeFilter] = useState<number | null>(null);
+
+  if (esRutaAdmin) {
+    return (
+      <StoreProvider>
+        <AdminApp />
+      </StoreProvider>
+    );
+  }
 
   const handleSelectSizeFromCalculator = (size: number) => {
     setSelectedSizeFilter(size);

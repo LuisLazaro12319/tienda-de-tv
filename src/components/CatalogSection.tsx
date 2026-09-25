@@ -15,7 +15,6 @@ import {
   Rows
 } from 'lucide-react';
 import { TV } from '../types/tv';
-import { TV_CATALOG } from '../data/tvs';
 import { useStore } from '../context/StoreContext';
 import { formatCurrency, buildSingleTvWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
@@ -30,6 +29,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   onClearExternalSizeFilter
 }) => {
   const {
+    productos,
     addToCart,
     setSelectedTvForDetail,
     toggleCompareTv,
@@ -114,7 +114,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 
   // Filter and sort logic
   const filteredTvs = useMemo(() => {
-    return TV_CATALOG.filter(tv => {
+    return productos.filter(tv => {
       // Search
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
@@ -182,6 +182,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
       return 0; // featured original order
     });
   }, [
+    productos,
     searchQuery,
     selectedBrand,
     selectedSize,
@@ -223,7 +224,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
         {/* Live Counter & Reset */}
         <div className="flex items-center gap-3 text-xs">
           <span className="text-slate-400 font-medium">
-            Mostrando <strong className="text-white font-mono">{filteredTvs.length}</strong> de {TV_CATALOG.length} modelos
+            Mostrando <strong className="text-white font-mono">{filteredTvs.length}</strong> de {productos.length} modelos
           </span>
           {hasActiveFilters && (
             <button
