@@ -207,29 +207,29 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   return (
     <section id="catalogo" className="py-12 md:py-16 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-800 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-6 border-b border-slate-200 gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">
             <Tv className="w-4 h-4" />
             <span>Inventario 100% Original & Garantizado</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
             Catálogo Especializado de Televisores
           </h2>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-slate-500">
             Filtra por marca, tamaño, tecnología y presupuesto. La compra se gestiona de inmediato por WhatsApp.
           </p>
         </div>
 
         {/* Live Counter & Reset */}
         <div className="flex items-center gap-3 text-xs">
-          <span className="text-slate-400 font-medium">
-            Mostrando <strong className="text-white font-mono">{filteredTvs.length}</strong> de {productos.length} modelos
+          <span className="text-slate-500 font-medium">
+            Mostrando <strong className="text-slate-900 font-mono">{filteredTvs.length}</strong> de {productos.length} modelos
           </span>
           {hasActiveFilters && (
             <button
               onClick={resetAllFilters}
-              className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
+              className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Limpiar filtros</span>
@@ -237,13 +237,13 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
           )}
 
           {/* Mobile-only column view switcher */}
-          <div className="md:hidden ml-auto flex items-center gap-1 p-1 bg-slate-900 border border-slate-800 rounded-lg">
+          <div className="md:hidden ml-auto flex items-center gap-1 p-1 bg-slate-50 border border-slate-200 rounded-lg">
             <button
               onClick={() => setMobileColumns(1)}
               aria-label="Ver en 1 columna"
               title="Ver en 1 columna"
               className={`p-1.5 rounded-md transition-colors ${
-                mobileColumns === 1 ? 'bg-cyan-400 text-slate-950' : 'text-slate-400 hover:text-white'
+                mobileColumns === 1 ? 'bg-blue-600 text-white' : 'text-slate-500 hover:text-slate-900'
               }`}
             >
               <Rows className="w-4 h-4" />
@@ -253,7 +253,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               aria-label="Ver en 2 columnas"
               title="Ver en 2 columnas"
               className={`p-1.5 rounded-md transition-colors ${
-                mobileColumns === 2 ? 'bg-cyan-400 text-slate-950' : 'text-slate-400 hover:text-white'
+                mobileColumns === 2 ? 'bg-blue-600 text-white' : 'text-slate-500 hover:text-slate-900'
               }`}
             >
               <LayoutGrid className="w-4 h-4" />
@@ -263,23 +263,23 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
       </div>
 
       {/* Main Filter & Search Control Panel */}
-      <div className="bg-slate-900/90 rounded-2xl border border-slate-800 p-4 sm:p-6 mb-8 space-y-5 shadow-xl">
+      <div className="bg-slate-50/90 rounded-2xl border border-slate-200 p-4 sm:p-6 mb-8 space-y-5 shadow-xl">
         {/* Row 1: Search Input + Sorting */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4">
           {/* Instant Search Bar */}
           <div className="md:col-span-8 relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Buscar por marca, modelo, 'OLED', '144Hz', 'Google TV', etc..."
-              className="w-full pl-10 pr-10 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+              className="w-full pl-10 pr-10 py-2.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900 p-1"
                 aria-label="Borrar búsqueda"
               >
                 <X className="w-3.5 h-3.5" />
@@ -290,11 +290,11 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
           {/* Sort Selector */}
           <div className="md:col-span-4 flex items-center gap-2">
             <div className="relative w-full">
-              <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+              <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500 pointer-events-none" />
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full pl-9 pr-8 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 focus:outline-none focus:border-cyan-500 transition-colors cursor-pointer appearance-none"
+                className="w-full pl-9 pr-8 py-2.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-blue-500 transition-colors cursor-pointer appearance-none"
               >
                 <option value="featured">Ordenar: Destacados</option>
                 <option value="price-asc">Precio: Menor a Mayor</option>
@@ -309,8 +309,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
               className={`p-2.5 rounded-xl border transition-colors shrink-0 flex items-center justify-center ${
                 showAdvancedFilters
-                  ? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30'
-                  : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
+                  ? 'bg-blue-600/10 text-blue-600 border-blue-500/30'
+                  : 'bg-white text-slate-500 border-slate-200 hover:text-slate-900'
               }`}
               title="Más filtros"
             >
@@ -321,7 +321,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 
         {/* Row 2: Brand Segmented Control */}
         <div>
-          <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-2">
             Marca:
           </span>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -333,8 +333,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                   onClick={() => setSelectedBrand(brand)}
                   className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                     isActive
-                      ? 'bg-cyan-400 text-slate-950 font-semibold shadow-sm'
-                      : 'bg-slate-950 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                      ? 'bg-blue-600 text-white font-semibold shadow-sm'
+                      : 'bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
                   {brand}
@@ -346,7 +346,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 
         {/* Row 3: Screen Size Filter */}
         <div>
-          <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-2">
             Tamaño de Pantalla:
           </span>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -358,8 +358,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                   onClick={() => setSelectedSize(size.value)}
                   className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors whitespace-nowrap ${
                     isActive
-                      ? 'bg-cyan-400 text-slate-950 font-semibold'
-                      : 'bg-slate-950 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                      ? 'bg-blue-600 text-white font-semibold'
+                      : 'bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
                   {size.label}
@@ -370,13 +370,13 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
         </div>
 
         {/* Row 4: Price Filter Presets and Range Slider */}
-        <div className="pt-2 border-t border-slate-800/80">
+        <div className="pt-2 border-t border-slate-200/80">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               Filtro por Precio:
             </span>
-            <span className="text-xs text-slate-300 font-mono">
-              Rango actual: <strong className="text-cyan-400">{formatCurrency(minPrice)}</strong> — <strong className="text-cyan-400">{formatCurrency(maxPrice)}</strong>
+            <span className="text-xs text-slate-700 font-mono">
+              Rango actual: <strong className="text-blue-600">{formatCurrency(minPrice)}</strong> — <strong className="text-blue-600">{formatCurrency(maxPrice)}</strong>
             </span>
           </div>
 
@@ -386,8 +386,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               onClick={() => handlePricePreset('all')}
               className={`px-3 py-1 text-xs rounded-md transition-colors ${
                 pricePreset === 'all'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  ? 'bg-blue-600/20 text-blue-700 border border-blue-500/40'
+                  : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
               }`}
             >
               Todos los precios
@@ -396,8 +396,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               onClick={() => handlePricePreset('under3500')}
               className={`px-3 py-1 text-xs rounded-md transition-colors ${
                 pricePreset === 'under3500'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  ? 'bg-blue-600/20 text-blue-700 border border-blue-500/40'
+                  : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
               }`}
             >
               Hasta Bs 3.500
@@ -406,8 +406,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               onClick={() => handlePricePreset('3500to7000')}
               className={`px-3 py-1 text-xs rounded-md transition-colors ${
                 pricePreset === '3500to7000'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  ? 'bg-blue-600/20 text-blue-700 border border-blue-500/40'
+                  : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
               }`}
             >
               Bs 3.500 a Bs 7.000
@@ -416,8 +416,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               onClick={() => handlePricePreset('7000to15000')}
               className={`px-3 py-1 text-xs rounded-md transition-colors ${
                 pricePreset === '7000to15000'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  ? 'bg-blue-600/20 text-blue-700 border border-blue-500/40'
+                  : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
               }`}
             >
               Bs 7.000 a Bs 15.000
@@ -426,8 +426,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
               onClick={() => handlePricePreset('over15000')}
               className={`px-3 py-1 text-xs rounded-md transition-colors ${
                 pricePreset === 'over15000'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                  : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
+                  ? 'bg-blue-600/20 text-blue-700 border border-blue-500/40'
+                  : 'bg-white text-slate-500 hover:text-slate-900 border border-slate-200'
               }`}
             >
               Más de Bs 15.000 (Alta Gama & 8K)
@@ -447,9 +447,9 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                 setMaxPrice(parseInt(e.target.value, 10));
                 setPricePreset('custom');
               }}
-              className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+              className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600"
             />
-            <span className="text-xs text-slate-300 font-mono whitespace-nowrap">
+            <span className="text-xs text-slate-700 font-mono whitespace-nowrap">
               Tope: {formatCurrency(maxPrice)}
             </span>
           </div>
@@ -457,15 +457,15 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 
         {/* Row 5: Expandable Advanced Filters (Tech, Refresh Rate, OS) */}
         {showAdvancedFilters && (
-          <div className="pt-4 border-t border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="pt-4 border-t border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-2">
                 Tecnología de Panel:
               </label>
               <select
                 value={selectedTech}
                 onChange={(e) => setSelectedTech(e.target.value)}
-                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyan-500"
+                className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-800 focus:outline-none focus:border-blue-500"
               >
                 {technologies.map(t => (
                   <option key={t} value={t}>{t}</option>
@@ -474,13 +474,13 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-2">
                 Tasa de Refresco:
               </label>
               <select
                 value={selectedHz}
                 onChange={(e) => setSelectedHz(e.target.value)}
-                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyan-500"
+                className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-800 focus:outline-none focus:border-blue-500"
               >
                 {refreshRates.map(r => (
                   <option key={r.value} value={r.value}>{r.label}</option>
@@ -489,13 +489,13 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">
+              <label className="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-2">
                 Sistema Operativo:
               </label>
               <select
                 value={selectedOs}
                 onChange={(e) => setSelectedOs(e.target.value)}
-                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyan-500"
+                className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-800 focus:outline-none focus:border-blue-500"
               >
                 <option value="Todas">Todos los sistemas</option>
                 <option value="Google TV">Google TV (Chromecast integrado)</option>
@@ -509,15 +509,15 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 
       {/* Product Grid or Empty State */}
       {filteredTvs.length === 0 ? (
-        <div className="text-center py-16 px-4 bg-slate-900/50 rounded-2xl border border-slate-800/80">
-          <Tv className="w-12 h-12 mx-auto text-slate-600 mb-3" />
-          <h3 className="text-lg font-bold text-white">No encontramos televisores con esos criterios</h3>
-          <p className="text-sm text-slate-400 mt-1 max-w-md mx-auto">
+        <div className="text-center py-16 px-4 bg-slate-50/50 rounded-2xl border border-slate-200/80">
+          <Tv className="w-12 h-12 mx-auto text-slate-400 mb-3" />
+          <h3 className="text-lg font-bold text-slate-900">No encontramos televisores con esos criterios</h3>
+          <p className="text-sm text-slate-500 mt-1 max-w-md mx-auto">
             Intenta ampliar el rango de precios o seleccionar otra combinación de filtros de marca y tamaño.
           </p>
           <button
             onClick={resetAllFilters}
-            className="mt-5 px-5 py-2.5 text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors"
+            className="mt-5 px-5 py-2.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
           >
             Restablecer todos los filtros
           </button>
@@ -537,12 +537,12 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
             return (
               <div
                 key={tv.id}
-                className="group flex flex-col justify-between bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-slate-700 hover:shadow-2xl hover:shadow-black/60 transition-all duration-300"
+                className="group flex flex-col justify-between bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 hover:shadow-2xl hover:shadow-slate-900/15 transition-all duration-300"
               >
                 {/* Image Section */}
                 <div
                   onClick={() => setSelectedTvForDetail(tv)}
-                  className="relative aspect-[4/3] bg-slate-950 overflow-hidden cursor-pointer"
+                  className="relative aspect-[4/3] bg-white overflow-hidden cursor-pointer"
                   title="Ver ficha técnica"
                 >
                   <img
@@ -552,12 +552,12 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {/* Scrim overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badges */}
                   <div className="absolute top-3 left-3 flex flex-col gap-1.5 items-start">
                     {tv.badge && (
-                      <span className="px-2.5 py-1 text-[11px] font-bold text-slate-950 bg-cyan-400 rounded-md tracking-wide">
+                      <span className="px-2.5 py-1 text-[11px] font-bold text-white bg-blue-600 rounded-md tracking-wide">
                         {tv.badge}
                       </span>
                     )}
@@ -570,11 +570,11 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
 
                   {/* Stock tag */}
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-cyan-400 bg-slate-950/80 backdrop-blur-sm px-2 py-0.5 rounded">
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-blue-600 bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
                       {tv.deliveryEstimate}
                     </span>
-                    <span className="text-[11px] font-mono text-slate-300 bg-slate-950/80 backdrop-blur-sm px-2 py-0.5 rounded">
+                    <span className="text-[11px] font-mono text-slate-700 bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded">
                       {tv.screenSize}"
                     </span>
                   </div>
@@ -584,8 +584,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                 <div className={`flex-1 flex flex-col justify-between space-y-4 ${mobileColumns === 2 ? 'p-3' : 'p-5'} md:p-5`}>
                   <div>
                     {/* Unboxed clean metadata (Zero-Pill discipline) */}
-                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-slate-400 mb-1.5 font-medium">
-                      <span className="text-cyan-400 font-semibold">{tv.brand}</span>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-slate-500 mb-1.5 font-medium">
+                      <span className="text-blue-600 font-semibold">{tv.brand}</span>
                       <span aria-hidden="true">·</span>
                       <span>{tv.technology}</span>
                       <span aria-hidden="true">·</span>
@@ -597,7 +597,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     {/* TV Title */}
                     <h3
                       onClick={() => setSelectedTvForDetail(tv)}
-                      className="text-base font-bold text-white line-clamp-1 cursor-pointer hover:text-cyan-300 transition-colors"
+                      className="text-base font-bold text-slate-900 line-clamp-1 cursor-pointer hover:text-blue-700 transition-colors"
                       title="Ver ficha técnica"
                     >
                       {tv.modelName}
@@ -605,20 +605,20 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                   </div>
 
                   {/* Price & Rating Row */}
-                  <div className="pt-2 border-t border-slate-800/80 flex items-baseline justify-between">
+                  <div className="pt-2 border-t border-slate-200/80 flex items-baseline justify-between">
                     <div>
                       {tv.originalPrice && (
                         <span className={`line-through text-slate-500 mr-2 font-mono tabular-nums ${mobileColumns === 2 ? 'text-[10px]' : 'text-xs'} md:text-xs`}>
                           {formatCurrency(tv.originalPrice)}
                         </span>
                       )}
-                      <span className={`font-bold text-white font-mono tabular-nums ${mobileColumns === 2 ? 'text-sm' : 'text-xl'} md:text-xl`}>
+                      <span className={`font-bold text-slate-900 font-mono tabular-nums ${mobileColumns === 2 ? 'text-sm' : 'text-xl'} md:text-xl`}>
                         {formatCurrency(tv.price)}
                       </span>
                     </div>
 
-                    <div className={`text-right text-slate-400 ${mobileColumns === 2 ? 'text-[10px]' : 'text-xs'} md:text-xs`}>
-                      <span className="text-amber-400">★ {tv.rating}</span>
+                    <div className={`text-right text-slate-500 ${mobileColumns === 2 ? 'text-[10px]' : 'text-xs'} md:text-xs`}>
+                      <span className="text-amber-500">★ {tv.rating}</span>
                       <span className="text-slate-500 ml-1">({tv.reviewsCount})</span>
                     </div>
                   </div>
@@ -630,19 +630,19 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                       href={buildSingleTvWhatsAppUrl(tv, whatsappPhone)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors shadow-sm"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors shadow-sm"
                     >
-                      <WhatsAppIcon className="w-4 h-4 fill-slate-950" />
+                      <WhatsAppIcon className="w-4 h-4 fill-white" />
                       <span>Comprar vía WhatsApp</span>
                     </a>
 
                     {/* Secondary Action: Add to Cart */}
                     <button
                       onClick={() => addToCart(tv)}
-                      className="w-full flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg transition-colors"
+                      className="w-full flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors"
                       title="Agregar al carrito"
                     >
-                      <Plus className="w-3.5 h-3.5 text-cyan-400" />
+                      <Plus className="w-3.5 h-3.5 text-blue-600" />
                       <span>Agregar al Carrito</span>
                     </button>
 
@@ -652,8 +652,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                         onClick={() => toggleCompareTv(tv)}
                         className={`text-[11px] font-medium inline-flex items-center gap-1 transition-colors ${
                           isComparing
-                            ? 'text-cyan-400'
-                            : 'text-slate-500 hover:text-slate-300'
+                            ? 'text-blue-600'
+                            : 'text-slate-500 hover:text-slate-700'
                         }`}
                       >
                         <Scale className="w-3 h-3" />

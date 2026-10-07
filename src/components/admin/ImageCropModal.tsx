@@ -36,11 +36,11 @@ export function ImageCropModal({ imageSrc, aspect, outputWidth, outputHeight, on
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4" onClick={onCancel}>
       <div
-        className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900 p-6"
+        className="w-full max-w-md rounded-2xl border border-slate-200 bg-slate-50 p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="text-base font-bold text-white mb-2 font-display">Encuadrá la foto</h3>
-        <p className="text-xs text-slate-400 mb-4">
+        <h3 className="text-base font-bold text-slate-900 mb-2 font-display">Encuadrá la foto</h3>
+        <p className="text-xs text-slate-500 mb-4">
           Arrastrá para mover la foto y usá la barra para acercar o alejar. Lo que quede dentro del recuadro es
           exactamente lo que va a mostrarse en la web.
         </p>
@@ -58,7 +58,7 @@ export function ImageCropModal({ imageSrc, aspect, outputWidth, outputHeight, on
         </div>
 
         <div className="flex items-center gap-3 mt-4">
-          <span className="text-xs text-slate-400 shrink-0">Zoom</span>
+          <span className="text-xs text-slate-500 shrink-0">Zoom</span>
           <input
             type="range"
             min={1}
@@ -66,7 +66,7 @@ export function ImageCropModal({ imageSrc, aspect, outputWidth, outputHeight, on
             step={0.01}
             value={zoom}
             onChange={(e) => setZoom(Number(e.target.value))}
-            className="w-full accent-cyan-500"
+            className="w-full accent-blue-600"
           />
         </div>
 
@@ -75,7 +75,7 @@ export function ImageCropModal({ imageSrc, aspect, outputWidth, outputHeight, on
             type="button"
             onClick={onCancel}
             disabled={procesando}
-            className="px-4 py-2 text-xs font-semibold text-slate-300 bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors"
+            className="px-4 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors"
           >
             Cancelar
           </button>
@@ -83,7 +83,7 @@ export function ImageCropModal({ imageSrc, aspect, outputWidth, outputHeight, on
             type="button"
             onClick={confirmar}
             disabled={procesando}
-            className="px-4 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors"
+            className="px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
           >
             {procesando ? 'Procesando...' : 'Usar esta foto'}
           </button>

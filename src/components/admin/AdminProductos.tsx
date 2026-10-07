@@ -157,43 +157,43 @@ export function AdminProductos() {
   return (
     <div className="space-y-6">
       {productos.length === 0 && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center justify-between gap-4 flex-wrap">
-          <p className="text-sm text-slate-300">
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex items-center justify-between gap-4 flex-wrap">
+          <p className="text-sm text-slate-700">
             Todavía no hay televisores cargados. Podés arrancar con el catálogo de ejemplo y editarlo después.
           </p>
           <button
             onClick={cargarCatalogoInicial}
             disabled={sembrando}
-            className="px-4 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors whitespace-nowrap"
+            className="px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors whitespace-nowrap"
           >
             {sembrando ? 'Cargando...' : 'Cargar catálogo de ejemplo'}
           </button>
         </div>
       )}
 
-      <form onSubmit={guardar} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-        <h3 className="text-base font-bold text-white font-display">
+      <form onSubmit={guardar} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <h3 className="text-base font-bold text-slate-900 font-display">
           {editandoId ? 'Editar televisor' : 'Nuevo televisor'}
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="sm:col-span-2 space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Nombre del modelo *</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Nombre del modelo *</label>
             <input
               value={form.modelName}
               onChange={(e) => setForm({ ...form, modelName: e.target.value })}
               placeholder='Ej: OLED evo C4 65" 4K Smart TV'
               required
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Marca</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Marca</label>
             <select
               value={form.brand}
               onChange={(e) => setForm({ ...form, brand: e.target.value as TV['brand'] })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             >
               {MARCAS.map((m) => (
                 <option key={m} value={m}>{m}</option>
@@ -202,31 +202,31 @@ export function AdminProductos() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Código de modelo</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Código de modelo</label>
             <input
               value={form.modelCode}
               onChange={(e) => setForm({ ...form, modelCode: e.target.value })}
               placeholder="Ej: OLED65C4PSA"
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pulgadas</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Pulgadas</label>
             <input
               type="number"
               value={form.screenSize}
               onChange={(e) => setForm({ ...form, screenSize: e.target.value })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tecnología de panel</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Tecnología de panel</label>
             <select
               value={form.technology}
               onChange={(e) => setForm({ ...form, technology: e.target.value as TV['technology'] })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             >
               {TECNOLOGIAS.map((t) => (
                 <option key={t} value={t}>{t}</option>
@@ -235,11 +235,11 @@ export function AdminProductos() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Resolución</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Resolución</label>
             <select
               value={form.resolution}
               onChange={(e) => setForm({ ...form, resolution: e.target.value as TV['resolution'] })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             >
               {RESOLUCIONES.map((r) => (
                 <option key={r} value={r}>{r}</option>
@@ -248,11 +248,11 @@ export function AdminProductos() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tasa de refresco</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Tasa de refresco</label>
             <select
               value={form.refreshRate}
               onChange={(e) => setForm({ ...form, refreshRate: Number(e.target.value) as TV['refreshRate'] })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             >
               {REFRESH_RATES.map((r) => (
                 <option key={r} value={r}>{r}Hz</option>
@@ -261,11 +261,11 @@ export function AdminProductos() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Sistema operativo</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Sistema operativo</label>
             <select
               value={form.os}
               onChange={(e) => setForm({ ...form, os: e.target.value as TV['os'] })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             >
               {SISTEMAS.map((o) => (
                 <option key={o} value={o}>{o}</option>
@@ -274,18 +274,18 @@ export function AdminProductos() {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Precio de venta (Bs) *</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Precio de venta (Bs) *</label>
             <input
               type="number"
               value={form.price}
               onChange={(e) => setForm({ ...form, price: e.target.value })}
               required
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
               Precio anterior (Bs, opcional)
             </label>
             <input
@@ -293,26 +293,26 @@ export function AdminProductos() {
               value={form.originalPrice}
               onChange={(e) => setForm({ ...form, originalPrice: e.target.value })}
               placeholder="Para mostrar descuento"
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Stock disponible</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Stock disponible</label>
             <input
               type="number"
               value={form.stockQuantity}
               onChange={(e) => setForm({ ...form, stockQuantity: e.target.value })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Etiqueta destacada</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Etiqueta destacada</label>
             <select
               value={form.badge}
               onChange={(e) => setForm({ ...form, badge: e.target.value as typeof form.badge })}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             >
               <option value="">Sin etiqueta</option>
               {BADGES.map((b) => (
@@ -322,29 +322,29 @@ export function AdminProductos() {
           </div>
 
           <div className="sm:col-span-2 space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tiempo de entrega</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Tiempo de entrega</label>
             <input
               value={form.deliveryEstimate}
               onChange={(e) => setForm({ ...form, deliveryEstimate: e.target.value })}
               placeholder="Ej: Entrega Hoy en La Paz"
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="sm:col-span-2 space-y-1">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Descripción</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Descripción</label>
             <textarea
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
               rows={3}
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="sm:col-span-2 space-y-2">
-            <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Foto del televisor</label>
+            <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Foto del televisor</label>
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="w-24 aspect-[4/3] rounded-lg overflow-hidden border border-slate-800 bg-black flex items-center justify-center shrink-0">
+              <div className="w-24 aspect-[4/3] rounded-lg overflow-hidden border border-slate-200 bg-black flex items-center justify-center shrink-0">
                 {form.image ? (
                   <img src={form.image} alt="Vista previa" className="w-full h-full object-cover" />
                 ) : (
@@ -363,7 +363,7 @@ export function AdminProductos() {
                   type="button"
                   onClick={() => inputArchivoRef.current?.click()}
                   disabled={subiendo}
-                  className="px-4 py-2 text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors"
+                  className="px-4 py-2 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors"
                 >
                   {subiendo ? 'Subiendo...' : 'Subir foto desde mi dispositivo'}
                 </button>
@@ -374,7 +374,7 @@ export function AdminProductos() {
               value={form.image}
               onChange={(e) => setForm({ ...form, image: e.target.value })}
               placeholder="o pegá una URL de imagen"
-              className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-sm text-white focus:outline-none focus:border-cyan-500"
+              className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-blue-500"
             />
           </div>
         </div>
@@ -383,7 +383,7 @@ export function AdminProductos() {
           <button
             type="submit"
             disabled={guardando}
-            className="px-5 py-2.5 text-sm font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors"
+            className="px-5 py-2.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
           >
             {editandoId ? 'Guardar cambios' : 'Agregar televisor'}
           </button>
@@ -391,7 +391,7 @@ export function AdminProductos() {
             <button
               type="button"
               onClick={cancelar}
-              className="px-5 py-2.5 text-sm font-medium text-slate-300 bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors"
+              className="px-5 py-2.5 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors"
             >
               Cancelar
             </button>
@@ -399,30 +399,30 @@ export function AdminProductos() {
         </div>
       </form>
 
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-        <h3 className="text-base font-bold text-white mb-3 font-display">Televisores ({productos.length})</h3>
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+        <h3 className="text-base font-bold text-slate-900 mb-3 font-display">Televisores ({productos.length})</h3>
         <div className="space-y-2">
           {productos.map((tv) => (
-            <div key={tv.id} className="flex items-center justify-between gap-3 py-2.5 border-b border-slate-800 last:border-0">
+            <div key={tv.id} className="flex items-center justify-between gap-3 py-2.5 border-b border-slate-200 last:border-0">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="w-14 aspect-[4/3] rounded-md overflow-hidden border border-slate-800 bg-black shrink-0">
+                <div className="w-14 aspect-[4/3] rounded-md overflow-hidden border border-slate-200 bg-black shrink-0">
                   <img src={tv.image} alt={tv.modelName} className="w-full h-full object-cover" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-white truncate">{tv.brand} {tv.modelName}</p>
-                  <p className="text-xs text-slate-400 font-mono">{formatCurrency(tv.price)}</p>
+                  <p className="text-sm font-semibold text-slate-900 truncate">{tv.brand} {tv.modelName}</p>
+                  <p className="text-xs text-slate-500 font-mono">{formatCurrency(tv.price)}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => editar(tv)}
-                  className="px-3 py-1.5 text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors"
+                  className="px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors"
                 >
                   Editar
                 </button>
                 <button
                   onClick={() => eliminar(tv.id)}
-                  className="px-3 py-1.5 text-xs font-medium text-rose-400 bg-rose-500/10 border border-rose-500/30 rounded-lg hover:bg-rose-500/20 transition-colors"
+                  className="px-3 py-1.5 text-xs font-medium text-rose-600 bg-rose-500/10 border border-rose-500/30 rounded-lg hover:bg-rose-500/20 transition-colors"
                 >
                   Eliminar
                 </button>

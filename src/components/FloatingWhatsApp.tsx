@@ -9,8 +9,8 @@ export const FloatingWhatsApp: React.FC = () => {
     <>
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl text-xs font-medium text-white flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
-          <span className="h-2 w-2 rounded-full bg-cyan-400" />
+        <div className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl shadow-2xl text-xs font-medium text-slate-900 flex items-center gap-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <span className="h-2 w-2 rounded-full bg-blue-600" />
           <span>{toastMessage}</span>
         </div>
       )}

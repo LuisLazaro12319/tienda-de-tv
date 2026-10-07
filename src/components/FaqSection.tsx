@@ -32,17 +32,17 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="preguntas" className="border-t border-slate-800 bg-slate-900/50 py-16">
+    <section id="preguntas" className="border-t border-slate-200 bg-slate-50/50 py-16">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-1">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">
             <HelpCircle className="w-4 h-4" />
             <span>Respuestas Rápidas</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-display">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
             Preguntas Frecuentes
           </h2>
-          <p className="mt-2 text-sm text-slate-400">
+          <p className="mt-2 text-sm text-slate-500">
             Todo lo que necesitas saber antes de solicitar tu cotización o compra por WhatsApp.
           </p>
         </div>
@@ -53,24 +53,24 @@ export const FaqSection: React.FC = () => {
             return (
               <div
                 key={index}
-                className="rounded-xl border border-slate-800 bg-slate-950 overflow-hidden transition-colors"
+                className="rounded-xl border border-slate-200 bg-white overflow-hidden transition-colors"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-slate-900/40 transition-colors"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 hover:bg-slate-50/40 transition-colors"
                 >
-                  <span className="text-sm sm:text-base font-semibold text-white">
+                  <span className="text-sm sm:text-base font-semibold text-slate-900">
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-cyan-400 shrink-0 transition-transform duration-200 ${
+                    className={`w-4 h-4 text-blue-600 shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-900">
+                  <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100">
                     {faq.a}
                   </div>
                 )}
@@ -79,17 +79,17 @@ export const FaqSection: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-10 p-6 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-3">
-          <p className="text-sm text-slate-300">
+        <div className="mt-10 p-6 rounded-2xl bg-white border border-slate-200 text-center space-y-3">
+          <p className="text-sm text-slate-700">
             ¿Tienes alguna consulta que no figure aquí?
           </p>
           <a
             href={buildSupportWhatsAppUrl(whatsappPhone, 'Tengo una consulta general sobre compras')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
           >
-            <WhatsAppIcon className="w-4 h-4 fill-slate-950" />
+            <WhatsAppIcon className="w-4 h-4 fill-white" />
             <span>Escribir al WhatsApp de Atención</span>
           </a>
         </div>

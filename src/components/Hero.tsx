@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
       image: oledImage,
       isTikTok: false,
       badge: 'Destacado de la Semana · LG',
-      badgeColor: 'bg-cyan-400 text-slate-950',
+      badgeColor: 'bg-blue-600 text-white',
       title: 'LG OLED evo C4 65" 4K 144Hz',
       subtitle: 'Negros absolutos, contraste infinito y 4 puertos HDMI 2.1 para PS5 & PC Gaming.',
       priceTag: 'Entrega Hoy en Bolivia',
@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
       image: qledImage,
       isTikTok: false,
       badge: 'Gaming Pro · Samsung',
-      badgeColor: 'bg-cyan-400 text-slate-950',
+      badgeColor: 'bg-blue-600 text-white',
       title: 'Samsung Neo QLED 65" QN90D',
       subtitle: 'Quantum Mini-LED de 2000 nits con panel antirreflejo perfecto para salas luminosas.',
       priceTag: 'Garantía Oficial 2 años',
@@ -68,7 +68,7 @@ export const Hero: React.FC = () => {
       image: miniLedImage,
       isTikTok: false,
       badge: 'Cine en Casa · 75 Pulgadas',
-      badgeColor: 'bg-amber-400 text-slate-950',
+      badgeColor: 'bg-amber-400 text-slate-900',
       title: 'TCL QM8 Pro 75" Flagship Mini-LED',
       subtitle: '5000 nits de pico de brillo y sistema de sonido integrado Onkyo 2.1.2 con subwoofer.',
       priceTag: 'Despacho Nacional Asegurado',
@@ -107,10 +107,10 @@ export const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-12 md:py-20">
+    <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-blue-50 to-white py-12 md:py-20">
       {/* Subtle background glow */}
       <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"
+        className="pointer-events-none absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-600/10 blur-3xl"
         aria-hidden="true"
       />
 
@@ -119,25 +119,25 @@ export const Hero: React.FC = () => {
           {/* Left Column: Editorial Value Proposition */}
           <div className="lg:col-span-6 space-y-6 text-left">
             {/* Ambient Tagline */}
-            <div className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-cyan-400 uppercase tracking-wider">
+            <div className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-blue-600 uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Smart TVs en Bolivia · Envíos Express a Santa Cruz, La Paz, Cbba & Nacional</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight font-display">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight font-display">
               Smart TVs premium para tu sala, tu setup gamer o tu cine en casa.
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-xl">
               Catálogo con los mejores Smart TVs OLED, Neo QLED y Mini-LED de LG, Samsung, Sony y TCL con garantía de marca.
-              Consulta stock en almacén y <strong className="text-white font-medium">concreta tu compra por WhatsApp</strong> con entrega en el día o despacho nacional asegurado.
+              Consulta stock en almacén y <strong className="text-slate-900 font-medium">concreta tu compra por WhatsApp</strong> con entrega en el día o despacho nacional asegurado.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#catalogo"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-950 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-colors shadow-lg shadow-cyan-950/40"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/30"
               >
                 <span>Ver Catálogo</span>
                 <ArrowDown className="w-4 h-4" />
@@ -145,11 +145,11 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Adjacent Trust Elements: rotating ticker */}
-            <div className="pt-6 border-t border-slate-800/80 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="pt-6 border-t border-slate-200/80 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
               <div className="flex w-max items-center gap-10 animate-marquee">
                 {[...trustItems, ...trustItems].map(({ icon: Icon, label }, index) => (
-                  <div key={index} className="flex items-center gap-2 text-xs text-slate-400 shrink-0 whitespace-nowrap">
-                    <Icon className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <div key={index} className="flex items-center gap-2 text-xs text-slate-500 shrink-0 whitespace-nowrap">
+                    <Icon className="w-4 h-4 text-blue-600 shrink-0" />
                     <span>{label}</span>
                   </div>
                 ))}
@@ -163,9 +163,9 @@ export const Hero: React.FC = () => {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="relative rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900 shadow-2xl shadow-black/80 group">
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 bg-slate-50 shadow-2xl shadow-slate-900/15 group">
               {/* Carousel Image with Smooth Transition */}
-              <div className="relative h-[360px] sm:h-[420px] w-full overflow-hidden bg-slate-950">
+              <div className="relative h-[360px] sm:h-[420px] w-full overflow-hidden bg-white">
                 <img
                   key={active.id}
                   src={active.image}
@@ -175,7 +175,7 @@ export const Hero: React.FC = () => {
                 />
                 
                 {/* Cinematic Vignette */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
 
                 {/* Top Badge: Highlight TikTok or Tech */}
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
@@ -194,14 +194,14 @@ export const Hero: React.FC = () => {
                 {/* Left / Right Carousel Navigation Chevrons */}
                 <button
                   onClick={handlePrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-slate-950/70 hover:bg-slate-900 text-white border border-slate-800 backdrop-blur-sm transition-all opacity-80 hover:opacity-100"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/70 hover:bg-slate-50 text-slate-900 border border-slate-200 backdrop-blur-sm transition-all opacity-80 hover:opacity-100"
                   aria-label="Foto anterior"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-slate-950/70 hover:bg-slate-900 text-white border border-slate-800 backdrop-blur-sm transition-all opacity-80 hover:opacity-100"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/70 hover:bg-slate-50 text-slate-900 border border-slate-200 backdrop-blur-sm transition-all opacity-80 hover:opacity-100"
                   aria-label="Foto siguiente"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -212,19 +212,19 @@ export const Hero: React.FC = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="space-y-1">
                       {active.isTikTok ? (
-                        <div className="flex items-center gap-2 text-rose-400 font-semibold text-xs uppercase tracking-wide">
+                        <div className="flex items-center gap-2 text-rose-300 font-semibold text-xs uppercase tracking-wide">
                           <Gift className="w-3.5 h-3.5" />
                           <span>Oferta Especial de la Comunidad TikTok</span>
                         </div>
                       ) : (
-                        <p className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
+                        <p className="text-xs font-semibold text-sky-300 uppercase tracking-wider">
                           {active.priceTag}
                         </p>
                       )}
                       <h2 className="text-base sm:text-lg font-bold text-white line-clamp-1 font-display">
                         {active.title}
                       </h2>
-                      <p className="hidden text-xs text-slate-300 line-clamp-2 leading-relaxed">
+                      <p className="hidden text-xs text-slate-700 line-clamp-2 leading-relaxed">
                         {active.subtitle}
                       </p>
                     </div>
@@ -235,20 +235,20 @@ export const Hero: React.FC = () => {
                           {active.oldPrice}
                         </span>
                       )}
-                      <span className="text-lg sm:text-xl font-extrabold text-cyan-400 font-mono tabular-nums">
+                      <span className="text-lg sm:text-xl font-extrabold text-blue-600 font-mono tabular-nums">
                         {active.currentPrice}
                       </span>
                     </div>
                   </div>
 
                   {/* Direct Action inside the Slide */}
-                  <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between gap-3">
+                  <div className="pt-2 border-t border-white/20 flex items-center justify-between gap-3">
                     {active.isTikTok ? (
                       <a
                         href={active.tiktokUrl || 'https://www.tiktok.com'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-black hover:bg-slate-950 text-white border border-rose-500/40"
+                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-black hover:bg-slate-800 text-white border border-rose-500/40"
                       >
                         <svg className="w-4 h-4 fill-current text-rose-400" viewBox="0 0 24 24">
                           <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
@@ -260,16 +260,16 @@ export const Hero: React.FC = () => {
                         href={buildDirectWhatsAppUrl(whatsappPhone, active.whatsappNote || '')}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-cyan-400 hover:bg-cyan-300 text-slate-950"
+                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-blue-600 hover:bg-blue-500 text-white"
                       >
-                        <WhatsAppIcon className="w-3.5 h-3.5 fill-slate-950" />
+                        <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
                         <span>Comprar por WhatsApp</span>
                       </a>
                     )}
 
                     <a
                       href="#catalogo"
-                      className="hidden px-3 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-950 border border-slate-800 rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap"
+                      className="hidden px-3 py-2 text-xs font-medium text-slate-700 hover:text-slate-900 bg-white border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors whitespace-nowrap"
                     >
                       Ver Catálogo
                     </a>
@@ -288,8 +288,8 @@ export const Hero: React.FC = () => {
                     currentSlide === index
                       ? slide.isTikTok 
                         ? 'w-8 bg-rose-500' 
-                        : 'w-8 bg-cyan-400'
-                      : 'w-2 bg-slate-700 hover:bg-slate-600'
+                        : 'w-8 bg-blue-600'
+                      : 'w-2 bg-slate-200 hover:bg-slate-300'
                   }`}
                   aria-label={`Ir a diapositiva ${index + 1}`}
                   title={slide.title}
