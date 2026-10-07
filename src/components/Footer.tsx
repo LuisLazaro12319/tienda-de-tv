@@ -17,9 +17,9 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <span className="flex items-center gap-2 text-lg font-bold text-white font-display">
               <span className="h-8 w-8 shrink-0 overflow-hidden rounded-full ring-1 ring-cyan-400/40">
-                <img src={logoImage} alt="Alienn La Paz" className="h-full w-full scale-110 object-cover" />
+                <img src={logoImage} alt="TV La Paz" className="h-full w-full scale-110 object-cover" />
               </span>
-              <span><span className="text-cyan-400">Alienn</span> La Paz</span>
+              <span><span className="text-cyan-400">TV</span> La Paz</span>
             </span>
             <p className="text-xs text-slate-400 leading-relaxed">
               Tienda especializada en venta y asesoría de televisores Smart TV de alta gama. Venta directa y personalizada por WhatsApp con garantía oficial de marca.

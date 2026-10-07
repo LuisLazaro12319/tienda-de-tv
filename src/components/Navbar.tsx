@@ -26,9 +26,9 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-2 text-xl font-bold tracking-tight text-white transition-opacity hover:opacity-90 font-display"
           >
             <span className="h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-cyan-400/40">
-              <img src={logoImage} alt="Alienn La Paz" className="h-full w-full scale-110 object-cover" />
+              <img src={logoImage} alt="TV La Paz" className="h-full w-full scale-110 object-cover" />
             </span>
-            <span className="text-cyan-400">Alienn</span>
+            <span className="text-cyan-400">TV</span>
             <span>La Paz</span>
             <span className="text-xs font-mono font-normal text-slate-400 tracking-normal ml-1 border-l border-slate-800 pl-2 hidden sm:inline">
               Televisores Smart TV

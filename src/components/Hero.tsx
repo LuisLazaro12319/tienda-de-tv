@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
       subtitle: 'Mira nuestros videos y demostraciones de televisores en vivo con ofertas especiales.',
       priceTag: 'Canal Oficial TikTok',
       oldPrice: '',
-      currentPrice: '@AliennLaPaz',
+      currentPrice: 'TV La Paz',
       tiktokUrl: 'https://www.tiktok.com'
     },
     {
