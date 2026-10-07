@@ -7,8 +7,11 @@ import {
   Tv, 
   ArrowDown, 
   ChevronLeft, 
-  ChevronRight
+  ChevronRight,
+  Flame,
+  Gift
 } from 'lucide-react';
+import { heroImage } from '../data/tvs';
 import oledImage from '../assets/images/tv_oled_evo_display_1790262645463.jpg';
 import qledImage from '../assets/images/tv_qled_gaming_setup_1790262655355.jpg';
 import miniLedImage from '../assets/images/tv_mini_led_cinema_1790262665687.jpg';
@@ -21,6 +24,18 @@ export const Hero: React.FC = () => {
   const { whatsappPhone } = useStore();
 
   const slides = [
+    {
+      id: 'tiktok-special',
+      image: heroImage,
+      isTikTok: true,
+      badge: 'Precios Únicos en TikTok',
+      badgeColor: 'bg-rose-500 text-white',
+      title: 'Precios Únicos en TikTok',
+      subtitle: 'Mira nuestros videos y demostraciones de televisores en vivo con ofertas especiales.',
+      priceTag: 'Canal Oficial TikTok',
+      oldPrice: '',
+      currentPrice: 'TV La Paz'
+    },
     {
       id: 'lg-c4-oled',
       image: oledImage,
@@ -158,10 +173,17 @@ export const Hero: React.FC = () => {
                 {/* Cinematic Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
 
-                {/* Top Badge */}
+                {/* Top Badge: Highlight TikTok or Tech */}
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
                   <span className={`px-3 py-1 text-xs font-bold rounded-md tracking-wider flex items-center gap-1.5 shadow-md ${active.badgeColor}`}>
-                    <span>{active.badge}</span>
+                    {active.isTikTok ? (
+                      <>
+                        <Flame className="w-3.5 h-3.5 fill-current" />
+                        <span>PRECIOS ÚNICOS EN TIKTOK</span>
+                      </>
+                    ) : (
+                      <span>{active.badge}</span>
+                    )}
                   </span>
                 </div>
 
@@ -185,9 +207,16 @@ export const Hero: React.FC = () => {
                 <div className="absolute bottom-4 left-4 right-4 z-10 p-3 sm:p-5 rounded-xl bg-transparent space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="space-y-1">
-                      <p className="text-xs font-semibold text-sky-300 uppercase tracking-wider">
-                        {active.priceTag}
-                      </p>
+                      {active.isTikTok ? (
+                        <div className="flex items-center gap-2 text-rose-300 font-semibold text-xs uppercase tracking-wide">
+                          <Gift className="w-3.5 h-3.5" />
+                          <span>Oferta Especial de la Comunidad TikTok</span>
+                        </div>
+                      ) : (
+                        <p className="text-xs font-semibold text-sky-300 uppercase tracking-wider">
+                          {active.priceTag}
+                        </p>
+                      )}
                       <h2 className="text-base sm:text-lg font-bold text-white line-clamp-1 font-display">
                         {active.title}
                       </h2>
@@ -208,7 +237,8 @@ export const Hero: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Direct Action inside the Slide */}
+                  {/* Direct Action inside the Slide (el slide promocional de TikTok no tiene accion) */}
+                  {active.whatsappNote && (
                   <div className="pt-2 border-t border-white/20 flex items-center justify-between gap-3">
                     <a
                       href={buildDirectWhatsAppUrl(whatsappPhone, active.whatsappNote)}
@@ -227,6 +257,7 @@ export const Hero: React.FC = () => {
                       Ver Catálogo
                     </a>
                   </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -239,7 +270,9 @@ export const Hero: React.FC = () => {
                   onClick={() => setCurrentSlide(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     currentSlide === index
-                      ? 'w-8 bg-blue-600'
+                      ? slide.isTikTok
+                        ? 'w-8 bg-rose-500'
+                        : 'w-8 bg-blue-600'
                       : 'w-2 bg-slate-200 hover:bg-slate-300'
                   }`}
                   aria-label={`Ir a diapositiva ${index + 1}`}
