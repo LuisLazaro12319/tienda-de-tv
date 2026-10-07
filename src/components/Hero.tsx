@@ -7,11 +7,8 @@ import {
   Tv, 
   ArrowDown, 
   ChevronLeft, 
-  ChevronRight, 
-  Flame,
-  Gift
+  ChevronRight
 } from 'lucide-react';
-import { heroImage } from '../data/tvs';
 import oledImage from '../assets/images/tv_oled_evo_display_1790262645463.jpg';
 import qledImage from '../assets/images/tv_qled_gaming_setup_1790262655355.jpg';
 import miniLedImage from '../assets/images/tv_mini_led_cinema_1790262665687.jpg';
@@ -25,22 +22,8 @@ export const Hero: React.FC = () => {
 
   const slides = [
     {
-      id: 'tiktok-special',
-      image: heroImage,
-      isTikTok: true,
-      badge: 'Precios Únicos en TikTok',
-      badgeColor: 'bg-rose-500 text-white',
-      title: 'Precios Únicos en TikTok',
-      subtitle: 'Mira nuestros videos y demostraciones de televisores en vivo con ofertas especiales.',
-      priceTag: 'Canal Oficial TikTok',
-      oldPrice: '',
-      currentPrice: 'TV La Paz',
-      tiktokUrl: 'https://www.tiktok.com'
-    },
-    {
       id: 'lg-c4-oled',
       image: oledImage,
-      isTikTok: false,
       badge: 'Destacado de la Semana · LG',
       badgeColor: 'bg-blue-600 text-white',
       title: 'LG OLED evo C4 65" 4K 144Hz',
@@ -53,7 +36,6 @@ export const Hero: React.FC = () => {
     {
       id: 'samsung-qn90d',
       image: qledImage,
-      isTikTok: false,
       badge: 'Gaming Pro · Samsung',
       badgeColor: 'bg-blue-600 text-white',
       title: 'Samsung Neo QLED 65" QN90D',
@@ -66,7 +48,6 @@ export const Hero: React.FC = () => {
     {
       id: 'tcl-qm8-cinema',
       image: miniLedImage,
-      isTikTok: false,
       badge: 'Cine en Casa · 75 Pulgadas',
       badgeColor: 'bg-amber-400 text-slate-900',
       title: 'TCL QM8 Pro 75" Flagship Mini-LED',
@@ -177,17 +158,10 @@ export const Hero: React.FC = () => {
                 {/* Cinematic Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
 
-                {/* Top Badge: Highlight TikTok or Tech */}
+                {/* Top Badge */}
                 <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
                   <span className={`px-3 py-1 text-xs font-bold rounded-md tracking-wider flex items-center gap-1.5 shadow-md ${active.badgeColor}`}>
-                    {active.isTikTok ? (
-                      <>
-                        <Flame className="w-3.5 h-3.5 fill-current" />
-                        <span>PRECIOS ÚNICOS EN TIKTOK</span>
-                      </>
-                    ) : (
-                      <span>{active.badge}</span>
-                    )}
+                    <span>{active.badge}</span>
                   </span>
                 </div>
 
@@ -211,16 +185,9 @@ export const Hero: React.FC = () => {
                 <div className="absolute bottom-4 left-4 right-4 z-10 p-3 sm:p-5 rounded-xl bg-transparent space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div className="space-y-1">
-                      {active.isTikTok ? (
-                        <div className="flex items-center gap-2 text-rose-300 font-semibold text-xs uppercase tracking-wide">
-                          <Gift className="w-3.5 h-3.5" />
-                          <span>Oferta Especial de la Comunidad TikTok</span>
-                        </div>
-                      ) : (
-                        <p className="text-xs font-semibold text-sky-300 uppercase tracking-wider">
-                          {active.priceTag}
-                        </p>
-                      )}
+                      <p className="text-xs font-semibold text-sky-300 uppercase tracking-wider">
+                        {active.priceTag}
+                      </p>
                       <h2 className="text-base sm:text-lg font-bold text-white line-clamp-1 font-display">
                         {active.title}
                       </h2>
@@ -243,29 +210,15 @@ export const Hero: React.FC = () => {
 
                   {/* Direct Action inside the Slide */}
                   <div className="pt-2 border-t border-white/20 flex items-center justify-between gap-3">
-                    {active.isTikTok ? (
-                      <a
-                        href={active.tiktokUrl || 'https://www.tiktok.com'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-black hover:bg-slate-800 text-white border border-rose-500/40"
-                      >
-                        <svg className="w-4 h-4 fill-current text-rose-400" viewBox="0 0 24 24">
-                          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                        </svg>
-                        <span>Entrar a TikTok</span>
-                      </a>
-                    ) : (
-                      <a
-                        href={buildDirectWhatsAppUrl(whatsappPhone, active.whatsappNote || '')}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-blue-600 hover:bg-blue-500 text-white"
-                      >
-                        <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-                        <span>Comprar por WhatsApp</span>
-                      </a>
-                    )}
+                    <a
+                      href={buildDirectWhatsAppUrl(whatsappPhone, active.whatsappNote)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-2 px-3 text-xs font-bold rounded-lg transition-colors shadow-sm bg-blue-600 hover:bg-blue-500 text-white"
+                    >
+                      <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                      <span>Comprar por WhatsApp</span>
+                    </a>
 
                     <a
                       href="#catalogo"
@@ -286,9 +239,7 @@ export const Hero: React.FC = () => {
                   onClick={() => setCurrentSlide(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     currentSlide === index
-                      ? slide.isTikTok 
-                        ? 'w-8 bg-rose-500' 
-                        : 'w-8 bg-blue-600'
+                      ? 'w-8 bg-blue-600'
                       : 'w-2 bg-slate-200 hover:bg-slate-300'
                   }`}
                   aria-label={`Ir a diapositiva ${index + 1}`}

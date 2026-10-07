@@ -4,7 +4,6 @@ import { useStore } from '../context/StoreContext';
 import { STORE_NAME, STORE_MAPS_URL } from '../data/tvs';
 import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
-import logoImage from '../assets/images/alienn-logo.png';
 
 export const Footer: React.FC = () => {
   const { whatsappPhone, setIsPhoneSettingsOpen } = useStore();
@@ -15,11 +14,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 pb-8 border-b border-blue-900">
           {/* Col 1: Brand & Identity */}
           <div className="space-y-3">
-            <span className="flex items-center gap-2 text-lg font-bold text-white font-display">
-              <span className="h-8 w-8 shrink-0 overflow-hidden rounded-full ring-1 ring-sky-400/40">
-                <img src={logoImage} alt="TV La Paz" className="h-full w-full scale-110 object-cover" />
-              </span>
-              <span><span className="text-sky-400">TV</span> La Paz</span>
+            <span className="text-lg font-bold text-white font-display">
+              <span className="text-sky-400">TV</span> La Paz
             </span>
             <p className="text-xs text-slate-400 leading-relaxed">
               Tienda especializada en venta y asesoría de televisores Smart TV de alta gama. Venta directa y personalizada por WhatsApp con garantía oficial de marca.

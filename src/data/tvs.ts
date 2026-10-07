@@ -593,8 +593,8 @@ export const ACCESSORIES: Accessory[] = [
   }
 ];
 
-export const STORE_DEFAULT_PHONE = '+59177788817'; // Bolivia WhatsApp
-export const STORE_DISPLAY_PHONE = '+591 777 88817';
+export const STORE_DEFAULT_PHONE = '+591 0000 0000'; // numero generico de demo: cambiar por el del cliente
+export const STORE_DISPLAY_PHONE = '+591 0000 0000';
 export const STORE_NAME = 'TV La Paz';
 export const STORE_CITY = 'La Paz';
 export const STORE_MAPS_URL = 'https://maps.app.goo.gl/kgaFB32GJxmD9q818';

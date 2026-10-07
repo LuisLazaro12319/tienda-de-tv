@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { MessageCircle, ShoppingBag, SlidersHorizontal, Scale, PhoneCall, Menu, X } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 import { buildSupportWhatsAppUrl } from '../utils/whatsapp';
-import logoImage from '../assets/images/alienn-logo.png';
 
 export const Navbar: React.FC = () => {
   const {
@@ -25,9 +24,6 @@ export const Navbar: React.FC = () => {
             href="#"
             className="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 transition-opacity hover:opacity-90 font-display"
           >
-            <span className="h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-blue-600/40">
-              <img src={logoImage} alt="TV La Paz" className="h-full w-full scale-110 object-cover" />
-            </span>
             <span className="text-blue-600">TV</span>
             <span>La Paz</span>
             <span className="text-xs font-mono font-normal text-slate-500 tracking-normal ml-1 border-l border-slate-200 pl-2 hidden sm:inline">
