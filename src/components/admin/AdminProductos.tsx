@@ -1,6 +1,12 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useStore } from '../../context/StoreContext';
-import { addProducto, updateProducto, deleteProducto, seedProductosSiVacio } from '../../lib/products';
+import {
+  addProducto,
+  updateProducto,
+  deleteProducto,
+  seedProductosSiVacio,
+  cargarCatalogo,
+} from '../../lib/products';
 import { subirImagenACloudinary } from '../../lib/cloudinary';
 import { formatCurrency } from '../../utils/whatsapp';
 import { ImageCropModal } from './ImageCropModal';
@@ -36,15 +42,27 @@ const VACIO = {
   image: '',
 };
 
+function mensajeDe(err: unknown): string {
+  return err instanceof Error ? err.message : 'Ocurrió un error. Probá de nuevo.';
+}
+
 export function AdminProductos() {
-  const { productos } = useStore();
+  const { productos, setProductos } = useStore();
   const [form, setForm] = useState(VACIO);
   const [editandoId, setEditandoId] = useState<string | null>(null);
   const [guardando, setGuardando] = useState(false);
   const [subiendo, setSubiendo] = useState(false);
   const [sembrando, setSembrando] = useState(false);
+  const [error, setError] = useState('');
   const [fotoParaRecortar, setFotoParaRecortar] = useState<string | null>(null);
   const inputArchivoRef = useRef<HTMLInputElement>(null);
+
+  // El admin siempre parte de la version real de la base, sin usar la copia guardada del navegador.
+  useEffect(() => {
+    cargarCatalogo(true)
+      .then(setProductos)
+      .catch((err) => setError(`No se pudo leer el catálogo: ${mensajeDe(err)}`));
+  }, [setProductos]);
 
   function editar(tv: TV) {
     setEditandoId(tv.id);
@@ -75,6 +93,11 @@ export function AdminProductos() {
   async function guardar(e: React.FormEvent) {
     e.preventDefault();
     if (!form.modelName.trim() || !form.price) return;
+    if (!form.image.trim()) {
+      setError('Subí una foto del televisor o pegá la URL de una imagen antes de guardar.');
+      return;
+    }
+    setError('');
     setGuardando(true);
 
     const existente = editandoId ? productos.find((p) => p.id === editandoId) : undefined;
@@ -93,7 +116,7 @@ export function AdminProductos() {
       originalPrice: form.originalPrice ? Number(form.originalPrice) : undefined,
       rating: existente?.rating ?? 4.8,
       reviewsCount: existente?.reviewsCount ?? 0,
-      image: form.image.trim() || '/img/promo.jpg',
+      image: form.image.trim(),
       badge: form.badge || undefined,
       inStock: stockQuantity > 0,
       stockQuantity,
@@ -110,9 +133,11 @@ export function AdminProductos() {
     };
 
     try {
-      if (editandoId) await updateProducto(editandoId, data);
-      else await addProducto(data);
+      const nuevos = editandoId ? await updateProducto(editandoId, data) : await addProducto(data);
+      setProductos(nuevos);
       cancelar();
+    } catch (err) {
+      setError(`No se pudo guardar: ${mensajeDe(err)}`);
     } finally {
       setGuardando(false);
     }
@@ -120,13 +145,21 @@ export function AdminProductos() {
 
   async function eliminar(id: string) {
     if (!confirm('¿Eliminar este televisor del catálogo?')) return;
-    await deleteProducto(id);
+    setError('');
+    try {
+      setProductos(await deleteProducto(id));
+    } catch (err) {
+      setError(`No se pudo eliminar: ${mensajeDe(err)}`);
+    }
   }
 
   async function cargarCatalogoInicial() {
+    setError('');
     setSembrando(true);
     try {
-      await seedProductosSiVacio();
+      setProductos(await seedProductosSiVacio());
+    } catch (err) {
+      setError(`No se pudo cargar el catálogo de ejemplo: ${mensajeDe(err)}`);
     } finally {
       setSembrando(false);
     }
@@ -156,6 +189,12 @@ export function AdminProductos() {
 
   return (
     <div className="space-y-6">
+      {error && (
+        <div className="rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs text-rose-700" role="alert">
+          {error}
+        </div>
+      )}
+
       {productos.length === 0 && (
         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex items-center justify-between gap-4 flex-wrap">
           <p className="text-sm text-slate-700">

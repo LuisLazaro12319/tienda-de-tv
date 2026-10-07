@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { TV, CartItem, Accessory, CheckoutCustomerData } from '../types/tv';
 import { STORE_DEFAULT_PHONE } from '../data/tvs';
-import { subscribeProductos } from '../lib/products';
+import { cargarCatalogo, catalogoEnCache } from '../lib/products';
 
 interface StoreContextType {
-  // Catalog (vive en Firestore; el admin lo carga/edita)
+  // Catalog (vive en un solo documento de Firestore; el admin lo carga/edita)
   productos: TV[];
+  setProductos: (productos: TV[]) => void;
 
   // Cart
   cart: CartItem[];
@@ -46,11 +47,20 @@ interface StoreContextType {
 const StoreContext = createContext<StoreContextType | undefined>(undefined);
 
 export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [productos, setProductos] = useState<TV[]>([]);
+  const [productos, setProductos] = useState<TV[]>(catalogoEnCache);
 
   useEffect(() => {
-    const unsubscribe = subscribeProductos(setProductos);
-    return unsubscribe;
+    let vigente = true;
+    cargarCatalogo()
+      .then((lista) => {
+        if (vigente) setProductos(lista);
+      })
+      .catch(() => {
+        // sin conexion y sin copia guardada: la tienda queda vacia hasta el proximo intento
+      });
+    return () => {
+      vigente = false;
+    };
   }, []);
 
   const [cart, setCart] = useState<CartItem[]>(() => {
@@ -190,6 +200,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     <StoreContext.Provider
       value={{
         productos,
+        setProductos,
         cart,
         addToCart,
         removeFromCart,
