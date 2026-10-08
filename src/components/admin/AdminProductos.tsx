@@ -7,7 +7,7 @@ import {
   seedProductosSiVacio,
   cargarCatalogo,
 } from '../../lib/products';
-import { subirImagenACloudinary } from '../../lib/cloudinary';
+import { subirImagenACloudinary, imgOptimizada } from '../../lib/cloudinary';
 import { formatCurrency } from '../../utils/whatsapp';
 import { ImageCropModal } from './ImageCropModal';
 import type { TV } from '../../types/tv';
@@ -445,7 +445,7 @@ export function AdminProductos() {
             <div key={tv.id} className="flex items-center justify-between gap-3 py-2.5 border-b border-slate-200 last:border-0">
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-14 aspect-[4/3] rounded-md overflow-hidden border border-slate-200 bg-black shrink-0">
-                  <img src={tv.image} alt={tv.modelName} className="w-full h-full object-cover" />
+                  <img src={imgOptimizada(tv.image, 300)} alt={tv.modelName} loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-slate-900 truncate">{tv.brand} {tv.modelName}</p>

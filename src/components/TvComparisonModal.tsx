@@ -3,6 +3,7 @@ import { X, Scale, Check, Minus } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 import { formatCurrency, buildSingleTvWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { imgOptimizada } from '../lib/cloudinary';
 
 export const TvComparisonModal: React.FC = () => {
   const {
@@ -71,7 +72,8 @@ export const TvComparisonModal: React.FC = () => {
                   <div key={tv.id} className="space-y-2">
                     <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-white border border-slate-200">
                       <img
-                        src={tv.image}
+                        src={imgOptimizada(tv.image, 400)}
+                        loading="lazy"
                         alt={tv.modelName}
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover"

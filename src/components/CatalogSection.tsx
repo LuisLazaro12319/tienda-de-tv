@@ -18,6 +18,7 @@ import { TV } from '../types/tv';
 import { useStore } from '../context/StoreContext';
 import { formatCurrency, buildSingleTvWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { imgOptimizada } from '../lib/cloudinary';
 
 interface CatalogSectionProps {
   externalSizeFilter?: number | null;
@@ -546,8 +547,10 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                   title="Ver ficha técnica"
                 >
                   <img
-                    src={tv.image}
+                    src={imgOptimizada(tv.image, 600)}
                     alt={`${tv.brand} ${tv.modelName}`}
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

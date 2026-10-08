@@ -19,6 +19,7 @@ import { ACCESSORIES } from '../data/tvs';
 import { useStore } from '../context/StoreContext';
 import { formatCurrency, buildSingleTvWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { imgOptimizada } from '../lib/cloudinary';
 
 export const TvDetailModal: React.FC = () => {
   const { 
@@ -98,7 +99,7 @@ export const TvDetailModal: React.FC = () => {
             <div className="md:col-span-6 space-y-3">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-white border border-slate-200">
                 <img
-                  src={tv.image}
+                  src={imgOptimizada(tv.image, 1200)}
                   alt={`${tv.brand} ${tv.modelName}`}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"

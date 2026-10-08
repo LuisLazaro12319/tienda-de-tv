@@ -16,6 +16,7 @@ import {
 import { useStore } from '../context/StoreContext';
 import { formatCurrency, buildCartWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { imgOptimizada } from '../lib/cloudinary';
 
 export const CartDrawer: React.FC = () => {
   const {
@@ -120,7 +121,8 @@ export const CartDrawer: React.FC = () => {
                   >
                     <div className="flex gap-3 items-start">
                       <img
-                        src={item.tv.image}
+                        src={imgOptimizada(item.tv.image, 160)}
+                        loading="lazy"
                         alt={item.tv.modelName}
                         referrerPolicy="no-referrer"
                         className="w-16 h-12 object-cover rounded-lg bg-slate-50 border border-slate-200 shrink-0"
